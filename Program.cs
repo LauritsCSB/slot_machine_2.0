@@ -12,6 +12,17 @@ for (int column = 0; column < numbers2d.GetLength(0); column++)
     }
 }
 
-Console.WriteLine($"{numbers2d[0, 0]} {numbers2d[0, 1]} {numbers2d[0, 2]}");
-Console.WriteLine($"{numbers2d[1, 0]} {numbers2d[1, 1]} {numbers2d[1, 2]}");
-Console.WriteLine($"{numbers2d[2, 0]} {numbers2d[2, 1]} {numbers2d[2, 2]}");
+for (int column = 0; column < numbers2d.GetLength(0); column++)
+{
+    for (int row = 0; row < numbers2d.GetLength(1); row++)
+    {
+        Console.Write(numbers2d[column, row] + " ");
+    }
+    Console.WriteLine();
+}
+
+//For playing first row
+for (int i = 0; i < numbers2d.GetLength(0); i++)
+{
+    numbers2d[0, i] = randomNumber.Next();
+}
