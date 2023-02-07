@@ -22,6 +22,10 @@ namespace SlotMachine2
 
             do
             {
+                //Lets user pick what to bet on
+                Console.WriteLine(pickBet);
+                playPicker = Convert.ToInt32(Console.ReadLine());
+
                 //Takes user bet
                 Console.WriteLine(userBet);
                 userBet = Convert.ToInt32(Console.ReadLine());
