@@ -18,11 +18,10 @@ namespace SlotMachine2
             string pickBet = "Pick 1 if you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
                 "Please enter your pick and press enter: ";
             string askForBet = "How much would you like to bet?";
-            string playAgain = "Would you like to play again?";
+            string playAgain = "Would you like to play again?, press y for yes and anything else for no, press enter";
             string playOrNo = "y";
 
             Console.WriteLine(welcomeAndRules);
-
             do
             {
                 //Lets user pick what to bet on
@@ -275,7 +274,8 @@ namespace SlotMachine2
                     }
                 }
 
-
+                Console.WriteLine(playAgain);
+                playOrNo = Console.ReadLine();
             } while (gameMoney > 1 && playOrNo.Contains("y"));
         }
     }
