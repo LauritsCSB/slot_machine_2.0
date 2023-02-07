@@ -15,7 +15,7 @@ namespace SlotMachine2
             string lossMessage = "No win..";
             string welcomeAndRules = "Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
                 "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.";
-            string betOverview = "Picking 1, you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
+            string pickBet = "Picking 1, you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
                 "Please enter your pick and press enter: ";
             string askForBet = "How much would you like to bet?";
             string playAgain = "y";
