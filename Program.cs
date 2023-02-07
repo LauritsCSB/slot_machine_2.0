@@ -32,20 +32,28 @@ for (int column = 0; column < numbers2d.GetLength(0); column++)
     Console.WriteLine();
 }
 
-
 //Checking one row
 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
 {
+    int counter = 0;
     if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
     {
-        Console.WriteLine(winMessage);
+        counter++;
     }
-    else if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
+
+    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
     {
-        Console.WriteLine(winMessage);
+        counter++;
     }
-    else if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
+
+    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
     {
+        counter++;
+    }
+
+    if (counter > 0)
+    {
+        gameMoney += (userBet * 2);
         Console.WriteLine(winMessage);
     }
     else
@@ -80,6 +88,7 @@ if (playPicker == 4 || playPicker == 5)
 
     if (counter == 2)
     {
+        gameMoney += (userBet * 3);
         Console.WriteLine(winMessage);
     }
     else
@@ -109,6 +118,7 @@ if (playPicker == 6)
 
     if (counter == 3)
     {
+        gameMoney += (userBet * 4);
         Console.WriteLine(winMessage);
     }
     else
@@ -120,16 +130,25 @@ if (playPicker == 6)
 //Checking one column
 if (playPicker == 7 || playPicker == 8 || playPicker == 9)
 {
+    int counter = 0;
     if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
     {
-        Console.WriteLine(winMessage);
+        counter++;
     }
+
     if (numbers2d[0, 1] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 1])
     {
-        Console.WriteLine(winMessage);
+        counter++;
     }
+
     if (numbers2d[0, 2] == numbers2d[1, 2] && numbers2d[1, 2] == numbers2d[2, 2])
     {
+        counter++;
+    }
+
+    if (counter > 0)
+    {
+        gameMoney += (userBet * 2);
         Console.WriteLine(winMessage);
     }
     else
@@ -163,6 +182,7 @@ if (playPicker == 10 || playPicker == 11)
 
     if (counter == 2)
     {
+        gameMoney += (userBet * 3);
         Console.WriteLine(winMessage);
     }
     else
@@ -192,6 +212,7 @@ if (playPicker == 12)
 
     if (counter == 3)
     {
+        gameMoney += (userBet * 4);
         Console.WriteLine(winMessage);
     }
     else
@@ -203,12 +224,20 @@ if (playPicker == 12)
 //Checking diagonal
 if (playPicker == 13 || playPicker == 14)
 {
+    int counter = 0;
     if (numbers2d[0, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 2])
     {
-        Console.WriteLine(winMessage);
+        counter++;
     }
-    else if (numbers2d[0, 2] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 0])
+
+    if (numbers2d[0, 2] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 0])
     {
+        counter++;
+    }
+
+    if (counter > 1)
+    {
+        gameMoney += (userBet * 3);
         Console.WriteLine(winMessage);
     }
     else
