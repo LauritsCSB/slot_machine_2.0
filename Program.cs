@@ -6,10 +6,11 @@ namespace SlotMachine2
 {
     internal class Program
     {
+        const int GAMEMONEY = 100;
         static void Main(string[] args)
         {
             int playPicker = 0;
-            int gameMoney = 100;
+            int gameMoney = GAMEMONEY;
             int userBet = 0;
             string winMessage = "Win!";
             string lossMessage = "No win..";
@@ -274,6 +275,7 @@ namespace SlotMachine2
                     }
                 }
 
+                //Asks for new round
                 Console.WriteLine(playAgain);
                 playOrNo = Console.ReadLine();
             } while (gameMoney > 1 && playOrNo.Contains("y"));
