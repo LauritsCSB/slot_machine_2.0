@@ -1,6 +1,17 @@
 ﻿//TODO Make player able to choose to play 1-3 rows, 1-3 columns or diagonals
-//TODO Make funntion to check for winning column, row and/ or diagonal, output win/ loose message
 //TODO Keep track of play and prize money, output money
+//TODO Wrap everything in game loop (do while)
+
+int playPicker = 0;
+int gameMoney = 0;
+int prizemoney = 0;
+string winMessage = "Win!";
+string lossMessage = "No win..";
+string welcomeAndRules = "Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
+    "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.";
+string betOverview = "Picking 1, you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
+    "Please enter your pick and press enter: ";
+string askForBet = "How much would you like to bet?";
 
 Random randomNumber = new Random();
 int[,] numbers2d = new int[3, 3];
@@ -21,25 +32,6 @@ for (int column = 0; column < numbers2d.GetLength(0); column++)
     Console.WriteLine();
 }
 
-/*Input to determine which result equals win:
-1: top row
-2: middle row
-3: bottom row
-4: top two rows
-5: bottom two rows
-6: all rows
-7: left column
-8: middle column
-9: right column
-10: left most columns
-11: right most columns
-12: all columns
-13: forward diagonal
-14: back diagonal
-*/
-int playPicker = 0;
-string winMessage = "Win!";
-string lossMessage = "No win..";
 
 //Checking one row
 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
@@ -96,7 +88,7 @@ if (playPicker == 4 || playPicker == 5)
     }
 }
 
-//Checking all rows
+//Checking three rows
 if (playPicker == 6)
 {
     int counter = 0;
@@ -179,7 +171,7 @@ if (playPicker == 10 || playPicker == 11)
     }
 }
 
-//Checking all columns
+//Checking three columns
 if (playPicker == 12)
 {
     int counter = 0;
