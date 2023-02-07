@@ -3,8 +3,8 @@
 //TODO Wrap everything in game loop (do while)
 
 int playPicker = 0;
-int gameMoney = 0;
-int prizemoney = 0;
+int gameMoney = 100;
+int userBet = 0;
 string winMessage = "Win!";
 string lossMessage = "No win..";
 string welcomeAndRules = "Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
