@@ -1,8 +1,4 @@
-﻿//TODO Make player able to choose to play 1-3 rows, 1-3 columns or diagonals
-//TODO Keep track of play and prize money, output money
-//TODO Wrap everything in game loop (do while)
-
-namespace SlotMachine2
+﻿namespace SlotMachine2
 {
     internal class Program
     {
@@ -53,6 +49,7 @@ namespace SlotMachine2
                     }
                     Console.WriteLine();
                 }
+                Console.WriteLine(gameMoney);
 
                 //Checking one row
                 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
