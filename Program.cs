@@ -18,7 +18,10 @@ namespace SlotMachine2
             string pickBet = "Pick 1 if you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
                 "Please enter your pick and press enter: ";
             string askForBet = "How much would you like to bet?";
-            string playAgain = "y";
+            string playAgain = "Would you like to play again?";
+            string playOrNo = "y";
+
+            Console.WriteLine(welcomeAndRules);
 
             do
             {
@@ -27,7 +30,7 @@ namespace SlotMachine2
                 playPicker = Convert.ToInt32(Console.ReadLine());
 
                 //Takes user bet
-                Console.WriteLine(userBet);
+                Console.WriteLine(askForBet);
                 userBet = Convert.ToInt32(Console.ReadLine());
 
                 //Fills 2d array with random numbers
@@ -272,7 +275,8 @@ namespace SlotMachine2
                     }
                 }
 
-            } while (gameMoney > 1 && playAgain.Contains("y"));
+
+            } while (gameMoney > 1 && playOrNo.Contains("y"));
         }
     }
 }
