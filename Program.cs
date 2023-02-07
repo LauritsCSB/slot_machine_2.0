@@ -59,6 +59,7 @@ if (playPicker == 1 || playPicker == 2 || playPicker == 3)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
 
@@ -94,6 +95,7 @@ if (playPicker == 4 || playPicker == 5)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
 
@@ -124,6 +126,7 @@ if (playPicker == 6)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
 
@@ -154,6 +157,7 @@ if (playPicker == 7 || playPicker == 8 || playPicker == 9)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
 
@@ -188,6 +192,7 @@ if (playPicker == 10 || playPicker == 11)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
 
@@ -218,6 +223,7 @@ if (playPicker == 12)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
 
@@ -243,5 +249,6 @@ if (playPicker == 13 || playPicker == 14)
     else
     {
         Console.WriteLine(lossMessage);
+        gameMoney -= userBet;
     }
 }
