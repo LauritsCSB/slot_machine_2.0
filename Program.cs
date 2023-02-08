@@ -9,7 +9,7 @@
             int gameMoney = GAMEMONEY;
             int userBet = 0;
             Random randomNumber = new Random();
-            int[,] numbers2d = new int[3, 3];
+            int[,] numbers2d = new int[3, 3]; 
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string welcomeAndRules = "Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
@@ -32,7 +32,7 @@
                 userBet = Convert.ToInt32(Console.ReadLine());
 
                 Console.Clear();
-
+                
                 //Fills 2d array with random numbers
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
                 {
@@ -51,7 +51,6 @@
                     }
                     Console.WriteLine();
                 }
-                Console.WriteLine(gameMoney);
 
                 //Checking one row/ column
                 if (playPicker == 1)
@@ -188,7 +187,7 @@
                         counter++;
                     }
 
-                    if (counter == 3)
+                    if (counter > 3)
                     {
                         gameMoney += (userBet * 4);
                         Console.WriteLine(winMessage);
@@ -225,6 +224,9 @@
                         gameMoney -= userBet;
                     }
                 }
+
+                //Outputs gamemoney
+                Console.WriteLine("$" + gameMoney);
 
                 //Asks for new round
                 Console.WriteLine(playAgain);
