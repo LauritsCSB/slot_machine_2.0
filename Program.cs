@@ -233,7 +233,16 @@
                 playOrNo = Console.ReadLine();
 
                 Console.Clear();
-            } while (gameMoney > 1 && playOrNo.Contains("y"));
+            } while (gameMoney > 0 && playOrNo.Contains("y"));
+
+            if (gameMoney > 0)
+            {
+                Console.WriteLine($"Congratulations! You won: {gameMoney}");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, you've lost. See you next time!");
+            }
         }
     }
 }
