@@ -1,5 +1,4 @@
-﻿//TODO Add tryparse method every time user gives input to handle runtime errors
-
+﻿
 namespace SlotMachine2
 {
     internal class Program
@@ -27,11 +26,27 @@ namespace SlotMachine2
             {
                 //Lets user pick what to bet on
                 Console.WriteLine(pickBet);
-                playPicker = Convert.ToInt32(Console.ReadLine());
+                if (int.TryParse(Console.ReadLine(), out playPicker))
+                {
+                    Console.WriteLine($"You've picked {playPicker}");
+                }
+                else
+                {
+                    Console.WriteLine("No pick detected.");
+                    continue;
+                }
 
                 //Takes user bet
                 Console.WriteLine(askForBet);
-                userBet = Convert.ToInt32(Console.ReadLine());
+                if (int.TryParse(Console.ReadLine(), out userBet))
+                {
+                    Console.WriteLine($"Your bet: {userBet}");
+                }
+                else
+                {
+                    Console.WriteLine("No bet detected.");
+                    continue;
+                }
 
                 Console.Clear();
                 
