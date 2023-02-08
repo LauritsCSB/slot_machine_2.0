@@ -1,4 +1,6 @@
-﻿namespace SlotMachine2
+﻿//TODO Add tryparse method every time user gives input to handle runtime errors
+
+namespace SlotMachine2
 {
     internal class Program
     {
