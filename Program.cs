@@ -51,8 +51,8 @@
                 }
                 Console.WriteLine(gameMoney);
 
-                //Checking one row
-                if (playPicker == 1 || playPicker == 2 || playPicker == 3)
+                //Checking one row/ column
+                if (playPicker == 1)
                 {
                     int counter = 0;
                     if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
@@ -70,89 +70,6 @@
                         counter++;
                     }
 
-                    if (counter > 0)
-                    {
-                        gameMoney += (userBet * 2);
-                        Console.WriteLine(winMessage);
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
-                    }
-                }
-
-                //Checking two rows
-                if (playPicker == 4 || playPicker == 5)
-                {
-                    int counter = 0;
-                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (counter == 2)
-                    {
-                        gameMoney += (userBet * 3);
-                        Console.WriteLine(winMessage);
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
-                    }
-                }
-
-                //Checking three rows
-                if (playPicker == 6)
-                {
-                    int counter = 0;
-                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (counter == 3)
-                    {
-                        gameMoney += (userBet * 4);
-                        Console.WriteLine(winMessage);
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
-                    }
-                }
-
-                //Checking one column
-                if (playPicker == 7 || playPicker == 8 || playPicker == 9)
-                {
-                    int counter = 0;
                     if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
                     {
                         counter++;
@@ -180,10 +97,30 @@
                     }
                 }
 
-                //Checking two columns
-                if (playPicker == 10 || playPicker == 11)
+                //Checking two rows/ columns
+                if (playPicker == 2)
                 {
                     int counter = 0;
+                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
+                    {
+                        counter++;
+                    }
+
+                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
+                    {
+                        counter++;
+                    }
+
+                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
+                    {
+                        counter++;
+                    }
+
+                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
+                    {
+                        counter++;
+                    }
+
                     if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
                     {
                         counter++;
@@ -203,7 +140,7 @@
                         counter++;
                     }
 
-                    if (counter == 2)
+                    if (counter > 2)
                     {
                         gameMoney += (userBet * 3);
                         Console.WriteLine(winMessage);
@@ -215,10 +152,25 @@
                     }
                 }
 
-                //Checking three columns
-                if (playPicker == 12)
+                //Checking three rows /columns
+                if (playPicker == 3)
                 {
                     int counter = 0;
+                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
+                    {
+                        counter++;
+                    }
+
+                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
+                    {
+                        counter++;
+                    }
+
+                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
+                    {
+                        counter++;
+                    }
+
                     if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
                     {
                         counter++;
@@ -247,7 +199,7 @@
                 }
 
                 //Checking diagonal
-                if (playPicker == 13 || playPicker == 14)
+                if (playPicker == 7)
                 {
                     int counter = 0;
                     if (numbers2d[0, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 2])
