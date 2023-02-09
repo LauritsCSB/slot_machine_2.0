@@ -1,4 +1,10 @@
-﻿
+﻿//TODO Add checker to see in user input is within a given range (possible plays and current money)
+//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize
+//TODO Decrease player money right after bet is made
+//TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
+//TODO Change rules to make the user bet on certain amount of lines or rows, the more they bet on, the higher the cost but also reward
+
+
 namespace SlotMachine2
 {
     internal class Program
@@ -6,9 +12,9 @@ namespace SlotMachine2
         const int GAMEMONEY = 100;
         static void Main(string[] args)
         {
-            int playPicker = 0;
+            int playPicker;
             int gameMoney = GAMEMONEY;
-            int userBet = 0;
+            int userBet;
             Random randomNumber = new Random();
             int[,] numbers2d = new int[3, 3]; 
             string winMessage = "Win!";
@@ -28,7 +34,7 @@ namespace SlotMachine2
                 Console.WriteLine(pickBet);
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
-                    Console.WriteLine($"You've picked {playPicker}");
+                    Console.WriteLine($"You've picked: {playPicker}");
                 }
                 else
                 {
