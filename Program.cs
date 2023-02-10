@@ -1,5 +1,4 @@
-﻿//TODO Add checker to see in user input is within a given range (possible plays and current money)
-//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize
+﻿//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize
 //TODO Decrease player money right after bet is made
 //TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
 //TODO Change rules to make the user bet on certain amount of lines or rows, the more they bet on, the higher the cost but also reward
@@ -16,7 +15,8 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             int userBet;
             Random randomNumber = new Random();
-            int[,] numbers2d = new int[3, 3]; 
+            int[,] numbers2d = new int[3, 3];
+            int[] possiblePlays = new int[] { 1, 2, 3, 7 };
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string welcomeAndRules = "Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
@@ -42,6 +42,13 @@ namespace SlotMachine2
                     continue;
                 }
 
+                //Checks if user input is supperted by program
+                if (!Array.Exists(possiblePlays, element => element == playPicker))
+                {
+                    Console.WriteLine("Invalid pick, try again.");
+                    continue;
+                }
+
                 //Takes user bet
                 Console.WriteLine(askForBet);
                 if (int.TryParse(Console.ReadLine(), out userBet))
@@ -51,6 +58,13 @@ namespace SlotMachine2
                 else
                 {
                     Console.WriteLine("No bet detected.");
+                    continue;
+                }
+
+                //Checks if user bet is inside bounds of playmoney value
+                if (userBet > gameMoney)
+                {
+                    Console.WriteLine($"Sorry, you only have ${gameMoney} left.");
                     continue;
                 }
 
