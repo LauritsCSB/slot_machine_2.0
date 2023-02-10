@@ -1,5 +1,4 @@
-﻿//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize if game "core" isnt changed
-//TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
+﻿//TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
 //TODO Change rules to make the user bet on certain amount of lines or rows, the more they bet on, the higher the cost but also reward
 
 
@@ -25,7 +24,7 @@ namespace SlotMachine2
             do
             {
                 //Lets user pick what to bet on
-                Console.WriteLine("Pick 1 if you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
+                Console.WriteLine("Pick 1 if you choose to bet on one row or column, 2 is for two etc. Numbers 4, 5 and 6 arent supported. If you pick 7 you'll bet on diagonals. " +
                 "Please enter your pick and press enter: ";);
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
