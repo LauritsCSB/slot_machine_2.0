@@ -1,4 +1,4 @@
-﻿//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize
+﻿//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize if game "core" isnt changed
 //TODO Decrease player money right after bet is made
 //TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
 //TODO Change rules to make the user bet on certain amount of lines or rows, the more they bet on, the higher the cost but also reward
@@ -169,11 +169,6 @@ namespace SlotMachine2
                         counter++;
                     }
                     if (numbers2d[0, 2] == numbers2d[1, 2] && numbers2d[1, 2] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 1] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 1])
                     {
                         counter++;
                     }
