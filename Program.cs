@@ -1,5 +1,4 @@
 ﻿//TODO Combine checker if's with a counter, depending of counter amount and playpicker, display win and add prize if game "core" isnt changed
-//TODO Decrease player money right after bet is made
 //TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
 //TODO Change rules to make the user bet on certain amount of lines or rows, the more they bet on, the higher the cost but also reward
 
@@ -19,19 +18,15 @@ namespace SlotMachine2
             int[] possiblePlays = new int[] { 1, 2, 3, 7 };
             string winMessage = "Win!";
             string lossMessage = "No win..";
-            string welcomeAndRules = "Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
-                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.";
-            string pickBet = "Pick 1 if you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
-                "Please enter your pick and press enter: ";
-            string askForBet = "How much would you like to bet?";
-            string playAgain = "Would you like to play again?, press y for yes and anything else for no, press enter";
             string playOrNo = "y";
 
-            Console.WriteLine(welcomeAndRules);
+            Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
+                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.";);
             do
             {
                 //Lets user pick what to bet on
-                Console.WriteLine(pickBet);
+                Console.WriteLine("Pick 1 if you choose to bet on one row or column, 2 is for two etc. If you pick 7 you'll bet on diagonals. " +
+                "Please enter your pick and press enter: ";);
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
@@ -50,7 +45,7 @@ namespace SlotMachine2
                 }
 
                 //Takes user bet
-                Console.WriteLine(askForBet);
+                Console.WriteLine("How much would you like to bet?";);
                 if (int.TryParse(Console.ReadLine(), out userBet))
                 {
                     Console.WriteLine($"Your bet: {userBet}");
@@ -258,7 +253,7 @@ namespace SlotMachine2
                 Console.WriteLine("$" + gameMoney);
 
                 //Asks for new round
-                Console.WriteLine(playAgain);
+                Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter";);
                 playOrNo = Console.ReadLine();
 
                 Console.Clear();
