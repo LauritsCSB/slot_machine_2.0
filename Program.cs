@@ -54,6 +54,7 @@ namespace SlotMachine2
                 if (int.TryParse(Console.ReadLine(), out userBet))
                 {
                     Console.WriteLine($"Your bet: {userBet}");
+                    gameMoney -= userBet;
                 }
                 else
                 {
@@ -131,7 +132,6 @@ namespace SlotMachine2
                     else
                     {
                         Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
                     }
                 }
 
@@ -181,7 +181,6 @@ namespace SlotMachine2
                     else
                     {
                         Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
                     }
                 }
 
@@ -227,7 +226,6 @@ namespace SlotMachine2
                     else
                     {
                         Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
                     }
                 }
 
@@ -253,7 +251,6 @@ namespace SlotMachine2
                     else
                     {
                         Console.WriteLine(lossMessage);
-                        gameMoney -= userBet;
                     }
                 }
 
