@@ -86,7 +86,7 @@ namespace SlotMachine2
                 }
 
                 //Checking one row/ column
-                if (playPicker == 1)
+                if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
                     int counter = 0;
                     if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
@@ -119,101 +119,17 @@ namespace SlotMachine2
                         counter++;
                     }
 
-                    if (counter > 0)
+                    if (counter == 1)
                     {
                         gameMoney += (userBet * 2);
                         Console.WriteLine(winMessage);
                     }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                    }
-                }
-
-                //Checking two rows/ columns
-                if (playPicker == 2)
-                {
-                    int counter = 0;
-                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 1] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 1])
-                    {
-                        counter++;
-                    }
-                    if (numbers2d[0, 2] == numbers2d[1, 2] && numbers2d[1, 2] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (counter > 2)
+                    else if (counter == 2)
                     {
                         gameMoney += (userBet * 3);
                         Console.WriteLine(winMessage);
                     }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                    }
-                }
-
-                //Checking three rows /columns
-                if (playPicker == 3)
-                {
-                    int counter = 0;
-                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 1] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 1])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 2] == numbers2d[1, 2] && numbers2d[1, 2] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (counter > 3)
+                    else if (counter > 3)
                     {
                         gameMoney += (userBet * 4);
                         Console.WriteLine(winMessage);
