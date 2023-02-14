@@ -1,5 +1,5 @@
 ﻿//TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
-//TODO Change program to make the user play on: center row, all three rows, all horizontal columns or diagonal lines
+//TODO Change program to make the user play on: center row, all three rows or diagonal lines
 
 
 namespace SlotMachine2
@@ -68,7 +68,7 @@ namespace SlotMachine2
                         }
                         else
                         {
-                            gameMoney -=3
+                            gameMoney -= 3;
                             Console.WriteLine("Bet taken!");
                         }
                     }
@@ -104,6 +104,7 @@ namespace SlotMachine2
                 }
 
                 Console.Clear();
+
                 
                 //Fills 2d array with random numbers
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
@@ -113,6 +114,10 @@ namespace SlotMachine2
                         numbers2d[column, row] = randomNumber.Next(0, 3);
                     }
                 }
+                
+                numbers2d[1, 0] = 0;
+                numbers2d[1, 1] = 0;
+                numbers2d[1, 2] = 0;
 
                 //Writes numbers in matrix to user
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
@@ -128,29 +133,21 @@ namespace SlotMachine2
                 if (playPicker == 1)
                 {
                     int counter = 0;
-                    gameMoney -= 1;
-
-                  
-                }
-
-                //Checking diagonal
-                if (playPicker == 7)
-                {
-                    int counter = 0;
-                    if (numbers2d[0, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 2])
+                    for (int i = 1; i < 2; i++)
                     {
-                        counter++;
+                        for (int j = 0; j < numbers2d.GetLength(1); j++)
+                        {
+                            if (numbers2d[1, 0] == numbers2d[i, j])
+                            {
+                                counter++;
+                            }
+                        }
                     }
 
-                    if (numbers2d[0, 2] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 0])
+                    if (counter == 3)
                     {
-                        counter++;
-                    }
-
-                    if (counter > 1)
-                    {
-                        gameMoney += (userBet * 3);
                         Console.WriteLine(winMessage);
+                        gameMoney += 2;
                     }
                     else
                     {
