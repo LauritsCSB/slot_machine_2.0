@@ -70,7 +70,7 @@ namespace SlotMachine2
                 {
                     for (int row = 0; row < numbers2d.GetLength(1); row++)
                     {
-                        numbers2d[column, row] = randomNumber.Next(1, 10);
+                        numbers2d[column, row] = randomNumber.Next(0, 3);
                     }
                 }
 
