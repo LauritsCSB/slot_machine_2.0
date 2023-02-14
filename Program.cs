@@ -1,5 +1,5 @@
-﻿//TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
-//TODO Change program to make the user play on: center row, all three rows or diagonal lines
+﻿//TODO Change program to make the user play on: center row, all three rows or diagonal lines,
+//work out from existing for loop checking middle row, iterate +2 for checking diagonals
 
 
 namespace SlotMachine2
