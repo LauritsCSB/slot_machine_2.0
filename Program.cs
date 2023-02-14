@@ -36,49 +36,71 @@ namespace SlotMachine2
                     continue;
                 }
 
-                switch (playPicker)
-                {
-                    case 1:
-                        gameMoney -= 1;
-                        break;
-                    case 2:
-                        gameMoney -= 3;
-                        break;
-                    case 3:
-                        gameMoney -= 4;
-                        break;
-                    case 4:
-                        gameMoney -= 5;
-                        break;
-                    default:
-                        break;
-                }
 
-                //Checks if user input is supperted by program
+                //Checks if user input is supperted by program and withdraws bet from gamemoney
                 if (!Array.Exists(possiblePlays, element => element == playPicker))
                 {
                     Console.WriteLine("Invalid pick, try again.");
                     continue;
                 }
-
-                //Takes user bet
-                Console.WriteLine("How much would you like to bet?");
-                if (int.TryParse(Console.ReadLine(), out userBet))
-                {
-                    Console.WriteLine($"Your bet: {userBet}");
-                    gameMoney -= userBet;
-                }
                 else
                 {
-                    Console.WriteLine("No bet detected.");
-                    continue;
-                }
+                    if (playPicker == 1)
+                    {
+                        if (1 > gameMoney)
+                        {
+                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -= 1;
+                            Console.WriteLine("Bet taken!");
+                        }
+                    }
 
-                //Checks if user bet is inside bounds of playmoney value
-                if (userBet > gameMoney)
-                {
-                    Console.WriteLine($"Sorry, you only have ${gameMoney} left.");
-                    continue;
+                    if (playPicker == 2)
+                    {
+                        if (3 > gameMoney)
+                        {
+                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -=3
+                            Console.WriteLine("Bet taken!");
+                        }
+                    }
+
+                    if (playPicker == 3)
+                    {
+                        if (4 > gameMoney)
+                        {
+                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -= 4;
+                            Console.WriteLine("Bet taken!");
+                        }
+                    }
+
+                    if (playPicker == 4)
+                    {
+                        if (5 > gameMoney)
+                        {
+                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -= 5;
+                            Console.WriteLine("Bet taken!");
+                        }
+                    }
+
                 }
 
                 Console.Clear();
