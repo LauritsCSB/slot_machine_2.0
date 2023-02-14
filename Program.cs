@@ -1,5 +1,5 @@
 ﻿//TODO Make for loop checking if numbers are the same, start a certain index to check different rows/ columns
-//TODO Change rules to make the user bet on certain amount of lines or rows, the more they bet on, the higher the cost but also reward
+//TODO Change program to make the user play on: center row, all three rows, all horizontal columns or diagonal lines
 
 
 namespace SlotMachine2
