@@ -20,11 +20,11 @@ namespace SlotMachine2
             string playOrNo = "y";
 
             Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
-                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.";);
+                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.");
             do
             {
                 //Lets user pick what to bet on
-                Console.WriteLine("Here's the possible play options: 1. Center row ($1 cost, 2x reward)\n2. " +
+                Console.WriteLine("Here's the possible play options:\n1. Center row ($1 cost, 2x reward)\n2. " +
                     "All rows ($3 cost, 6x reward)\n3. All columns ($4 cost, 8x reward)\n4. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
@@ -36,6 +36,24 @@ namespace SlotMachine2
                     continue;
                 }
 
+                switch (playPicker)
+                {
+                    case 1:
+                        gameMoney -= 1;
+                        break;
+                    case 2:
+                        gameMoney -= 3;
+                        break;
+                    case 3:
+                        gameMoney -= 4;
+                        break;
+                    case 4:
+                        gameMoney -= 5;
+                        break;
+                    default:
+                        break;
+                }
+
                 //Checks if user input is supperted by program
                 if (!Array.Exists(possiblePlays, element => element == playPicker))
                 {
@@ -44,7 +62,7 @@ namespace SlotMachine2
                 }
 
                 //Takes user bet
-                Console.WriteLine("How much would you like to bet?";);
+                Console.WriteLine("How much would you like to bet?");
                 if (int.TryParse(Console.ReadLine(), out userBet))
                 {
                     Console.WriteLine($"Your bet: {userBet}");
@@ -84,59 +102,13 @@ namespace SlotMachine2
                     Console.WriteLine();
                 }
 
-                //Checking one row/ column
-                if (playPicker == 1 || playPicker == 2 || playPicker == 3)
+                //Checking middle row
+                if (playPicker == 1)
                 {
                     int counter = 0;
-                    if (numbers2d[0, 0] == numbers2d[0, 1] && numbers2d[0, 1] == numbers2d[0, 2])
-                    {
-                        counter++;
-                    }
+                    gameMoney -= 1;
 
-                    if (numbers2d[1, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[1, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[2, 0] == numbers2d[2, 1] && numbers2d[2, 1] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 0] == numbers2d[1, 0] && numbers2d[1, 0] == numbers2d[2, 0])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 1] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 1])
-                    {
-                        counter++;
-                    }
-
-                    if (numbers2d[0, 2] == numbers2d[1, 2] && numbers2d[1, 2] == numbers2d[2, 2])
-                    {
-                        counter++;
-                    }
-
-                    if (counter == 1)
-                    {
-                        gameMoney += (userBet * 2);
-                        Console.WriteLine(winMessage);
-                    }
-                    else if (counter == 2)
-                    {
-                        gameMoney += (userBet * 3);
-                        Console.WriteLine(winMessage);
-                    }
-                    else if (counter > 3)
-                    {
-                        gameMoney += (userBet * 4);
-                        Console.WriteLine(winMessage);
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                    }
+                  
                 }
 
                 //Checking diagonal
@@ -168,7 +140,7 @@ namespace SlotMachine2
                 Console.WriteLine("$" + gameMoney);
 
                 //Asks for new round
-                Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter";);
+                Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");
                 playOrNo = Console.ReadLine();
 
                 Console.Clear();
