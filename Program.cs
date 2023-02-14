@@ -24,8 +24,8 @@ namespace SlotMachine2
             do
             {
                 //Lets user pick what to bet on
-                Console.WriteLine("Pick 1 if you choose to bet on one row or column, 2 is for two etc. Numbers 4, 5 and 6 arent supported. If you pick 7 you'll bet on diagonals. " +
-                "Please enter your pick and press enter: ";);
+                Console.WriteLine("Here's the possible play options: 1. Center row ($1 cost, 2x reward)\n2. " +
+                    "All rows ($3 cost, 6x reward)\n3. All columns ($4 cost, 8x reward)\n4. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
