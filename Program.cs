@@ -14,7 +14,7 @@ namespace SlotMachine2
             int userBet;
             Random randomNumber = new Random();
             int[,] numbers2d = new int[3, 3];
-            int[] possiblePlays = new int[] { 1, 2, 3, 7 };
+            int[] possiblePlays = new int[] { 1, 2, 3, 4 };
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string playOrNo = "y";
