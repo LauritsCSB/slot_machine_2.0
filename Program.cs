@@ -14,7 +14,7 @@ namespace SlotMachine2
             int userBet;
             Random randomNumber = new Random();
             int[,] numbers2d = new int[3, 3];
-            int[] possiblePlays = new int[] { 1, 2, 3, 4 };
+            int[] possiblePlays = new int[] { 1, 2, 3, 4, 5 };
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string playOrNo = "y";
@@ -27,7 +27,7 @@ namespace SlotMachine2
             {
                 //Lets user pick what to bet on
                 Console.WriteLine("Here's the possible play options:\n1. Center row ($1 cost, 2x reward)\n2. " +
-                    "All rows ($3 cost, 6x reward)\n3. Center column  (2$ cost, 3x reward)\n4. All columns ($4 cost, 8x reward)\n4. Diagonal lines ($5 cost, 10x reward)");
+                    "All rows ($3 cost, 6x reward)\n3. Center column  (2$ cost, 3x reward)\n4. All columns ($4 cost, 8x reward)\n5. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
