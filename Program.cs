@@ -13,10 +13,7 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             int userBet;
             Random randomNumber = new Random();
-            //int[,] numbers2d = new int[3, 3];
-            int[,] numbers2d = { { 0, 0, 0 },
-                                 { 0, 0, 0 },
-                                 { 0, 0, 0 } };
+            int[,] numbers2d = new int[3, 3];
             int[] possiblePlays = new int[] { 1, 2, 3, 4, 5, 6};
             string winMessage = "Win!";
             string lossMessage = "No win..";
@@ -133,7 +130,6 @@ namespace SlotMachine2
 
                 Console.Clear();
 
-                /*
                 //Fills 2d array with random numbers
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
                 {
@@ -142,7 +138,6 @@ namespace SlotMachine2
                         numbers2d[column, row] = randomNumber.Next(0, 3);
                     }
                 }
-                */
 
                 //Writes numbers in matrix to user
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
