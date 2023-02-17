@@ -26,8 +26,8 @@ namespace SlotMachine2
             do
             {
                 //Lets user pick what to bet on
-                Console.WriteLine("Here's the possible play options:\n1. Center row ($1 cost, 2x reward)\n2. " +
-                    "All rows ($3 cost, 7x reward)\n3. Center column  (2$ cost, 3x reward)\n4. (Work in progress) Diagonal lines ($5 cost, 10x reward)");
+                Console.WriteLine("Here's the possible play options:\n1. One row ($1 cost, 3x reward)\n2. Two rows ($3 cost, 4x reward)\n3. " +
+                    "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 costm 5x reward)\n6. (Work in progress) Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
@@ -75,14 +75,27 @@ namespace SlotMachine2
 
                     if (playPicker == 3)
                     {
-                        if (2 > gameMoney)
+                        if (5 > gameMoney)
                         {
                             Console.WriteLine(gameMoneyError);
                             continue;
                         }
                         else
                         {
-                            gameMoney -= 2;
+                            gameMoney -= 5;
+                        }
+                    }
+
+                    if (playPicker == 4)
+                    {
+                        if (4 > gameMoney)
+                        {
+                            Console.WriteLine(gameMoneyError);
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -= 4;
                         }
                     }
 
@@ -123,25 +136,64 @@ namespace SlotMachine2
                     Console.WriteLine();
                 }
 
-                //Checking center row
-                if (playPicker == 1)
+                int counter1 = 0;
+                int counter2 = 0;
+                //Checking rows
+                if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
-                    int counter = 0;
-                    for (int i = 1; i < 2; i++)
+                    for (int i = 0; i < numbers2d.GetLength(1); i++)
                     {
-                        for (int j = 0; j < numbers2d.GetLength(1); j++)
+                        if (numbers2d[0, 0] == numbers2d[0, i])
                         {
-                            if (numbers2d[1, 0] == numbers2d[i, j])
-                            {
-                                counter++;
-                            }
+                            counter1++;
+                        }
+
+                        if (counter1 == 3)
+                        {
+                            counter2++;
                         }
                     }
 
-                    if (counter == 3)
+                    for (int i = 0; i < numbers2d.GetLength(1); i++)
+                    {
+                        if (numbers2d[1, 0] == numbers2d[1, i])
+                        {
+                            counter1++;
+                        }
+
+                        if (counter1 == 3)
+                        {
+                            counter2++;
+                        }
+                    }
+
+                    for (int i = 0; i < numbers2d.GetLength(1); i++)
+                    {
+                        if (numbers2d[2, 0] == numbers2d[2, i])
+                        {
+                            counter1++;
+                        }
+
+                        if (counter1 == 3)
+                        {
+                            counter2++;
+                        }
+                    }
+
+                    if (counter2 == 1)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 2;
+                        gameMoney += 3;
+                    }
+                    else if (counter2 == 2)
+                    {
+                        Console.WriteLine(winMessage);
+                        gameMoney += 12;
+                    }
+                    else if (counter2 == 3)
+                    {
+                        Console.WriteLine(winMessage);
+                        gameMoney += 25;
                     }
                     else
                     {
@@ -149,51 +201,66 @@ namespace SlotMachine2
                     }
                 }
 
-                //Checking all rows
-                if (playPicker == 2)
+                //Checking columns
+                if (playPicker == 4 || playPicker == 5)
                 {
-                    int counter = 0;
                     for (int i = 0; i < numbers2d.GetLength(0); i++)
                     {
-                        for (int j = 0; j < numbers2d.GetLength(1); j++)
+                        for (int j = 0; j < numbers2d.GetLength(1); j += 3)
                         {
                             if (numbers2d[0, 0] == numbers2d[i, j])
                             {
-                                counter++;
+                                counter1++;
                             }
+                        }
+
+                        if (counter1 == 3)
+                        {
+                            counter2++;
                         }
                     }
 
-                    if (counter == 9)
-                    {
-                        Console.WriteLine(winMessage);
-                        gameMoney += 21;
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                    }
-                }
-
-                //Checking center column
-                if (playPicker == 3)
-                {
-                    int counter = 0;
                     for (int i = 0; i < numbers2d.GetLength(0); i++)
                     {
                         for (int j = 1; j < numbers2d.GetLength(1); j += 3)
                         {
                             if (numbers2d[0, 1] == numbers2d[i, j])
                             {
-                                counter++;
+                                counter1++;
                             }
+                        }
+
+                        if (counter1 == 3)
+                        {
+                            counter2++;
                         }
                     }
 
-                    if (counter == 3)
+                    for (int i = 0; i < numbers2d.GetLength(0); i++)
+                    {
+                        for (int j = 2; j < numbers2d.GetLength(1); j += 3)
+                        {
+                            if (numbers2d[0, 2] == numbers2d[i, j])
+                            {
+                                counter1++;
+                            }
+                        }
+
+                        if (counter1 == 3)
+                        {
+                            counter2++;
+                        }
+                    }
+
+                    if (counter2 == 1)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 6;
+                    }
+                    else if (counter2 >= 2)
+                    {
+                        Console.WriteLine(winMessage);
+                        gameMoney += 20;
                     }
                     else
                     {
