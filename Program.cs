@@ -18,6 +18,8 @@ namespace SlotMachine2
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string playOrNo = "y";
+            string gameMoneyError = $"Sorry, you only have {gameMoney} left.";
+            string gameMoneyAccept = "Bet taken!";
 
             Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
                 "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.");
@@ -49,13 +51,13 @@ namespace SlotMachine2
                     {
                         if (1 > gameMoney)
                         {
-                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            Console.WriteLine(gameMoneyError);
                             continue;
                         }
                         else
                         {
                             gameMoney -= 1;
-                            Console.WriteLine("Bet taken!");
+                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
@@ -63,13 +65,13 @@ namespace SlotMachine2
                     {
                         if (3 > gameMoney)
                         {
-                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            Console.WriteLine(gameMoneyError);
                             continue;
                         }
                         else
                         {
                             gameMoney -= 3;
-                            Console.WriteLine("Bet taken!");
+                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
@@ -77,13 +79,13 @@ namespace SlotMachine2
                     {
                         if (4 > gameMoney)
                         {
-                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            Console.WriteLine(gameMoneyError);
                             continue;
                         }
                         else
                         {
                             gameMoney -= 4;
-                            Console.WriteLine("Bet taken!");
+                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
@@ -91,13 +93,13 @@ namespace SlotMachine2
                     {
                         if (5 > gameMoney)
                         {
-                            Console.WriteLine($"Sorry, you only have {gameMoney} left.");
+                            Console.WriteLine(gameMoneyError);
                             continue;
                         }
                         else
                         {
                             gameMoney -= 5;
-                            Console.WriteLine("Bet taken!");
+                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
