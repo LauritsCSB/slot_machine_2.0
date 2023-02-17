@@ -34,7 +34,7 @@ namespace SlotMachine2
                 }
                 else
                 {
-                    Console.WriteLine("No pick detected.");
+                    Console.Clear();
                     continue;
                 }
 
@@ -42,7 +42,7 @@ namespace SlotMachine2
                 //Checks if user input is supperted by program and withdraws bet from gamemoney
                 if (!Array.Exists(possiblePlays, element => element == playPicker))
                 {
-                    Console.WriteLine("Invalid pick, try again.");
+                    Console.Clear();
                     continue;
                 }
                 else
