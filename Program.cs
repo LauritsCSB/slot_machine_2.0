@@ -27,7 +27,7 @@ namespace SlotMachine2
             {
                 //Lets user pick what to bet on
                 Console.WriteLine("Here's the possible play options:\n1. One row ($1 cost, 3x reward)\n2. Two rows ($3 cost, 4x reward)\n3. " +
-                    "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 costm 5x reward)\n6. (Work in progress) Diagonal lines ($5 cost, 10x reward)");
+                    "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 cost 5x reward)\n6. (Work in progress) Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
