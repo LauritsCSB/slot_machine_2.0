@@ -21,13 +21,13 @@ namespace SlotMachine2
             string gameMoneyError = $"Sorry, you only have {gameMoney} left.";
             string gameMoneyAccept = "Bet taken!";
 
-            Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1-3 rows, columns or diagonals. " +
-                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.");
+            Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1 or 3 rows, 1 or 3 columns or diagonals. " +
+                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.\n");
             do
             {
                 //Lets user pick what to bet on
                 Console.WriteLine("Here's the possible play options:\n1. Center row ($1 cost, 2x reward)\n2. " +
-                    "All rows ($3 cost, 6x reward)\n3. All columns ($4 cost, 8x reward)\n4. Diagonal lines ($5 cost, 10x reward)");
+                    "All rows ($3 cost, 6x reward)\n3. Center column  (2$ cost, 3x reward)\n4. All columns ($4 cost, 8x reward)\n4. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
