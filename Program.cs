@@ -57,7 +57,6 @@ namespace SlotMachine2
                         else
                         {
                             gameMoney -= 1;
-                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
@@ -71,11 +70,23 @@ namespace SlotMachine2
                         else
                         {
                             gameMoney -= 3;
-                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
                     if (playPicker == 3)
+                    {
+                        if (2 > gameMoney)
+                        {
+                            Console.WriteLine(gameMoneyError);
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -= 2;
+                        }
+                    }
+
+                    if (playPicker == 4)
                     {
                         if (4 > gameMoney)
                         {
@@ -85,11 +96,10 @@ namespace SlotMachine2
                         else
                         {
                             gameMoney -= 4;
-                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
-                    if (playPicker == 4)
+                    if (playPicker == 5)
                     {
                         if (5 > gameMoney)
                         {
@@ -99,7 +109,6 @@ namespace SlotMachine2
                         else
                         {
                             gameMoney -= 5;
-                            Console.WriteLine(gameMoneyAccept);
                         }
                     }
 
