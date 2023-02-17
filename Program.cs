@@ -13,7 +13,10 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             int userBet;
             Random randomNumber = new Random();
-            int[,] numbers2d = new int[3, 3];
+            //int[,] numbers2d = new int[3, 3];
+            int[,] numbers2d = { { 0, 0, 0 },
+                                 { 0, 0, 0 },
+                                 { 0, 0, 0 } };
             int[] possiblePlays = new int[] { 1, 2, 3, 4};
             string winMessage = "Win!";
             string lossMessage = "No win..";
@@ -27,7 +30,7 @@ namespace SlotMachine2
             {
                 //Lets user pick what to bet on
                 Console.WriteLine("Here's the possible play options:\n1. One row ($1 cost, 3x reward)\n2. Two rows ($3 cost, 4x reward)\n3. " +
-                    "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 cost 5x reward)\n6. (Work in progress) Diagonal lines ($5 cost, 10x reward)");
+                    "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 cost 5x reward)\n6. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
@@ -129,7 +132,8 @@ namespace SlotMachine2
                 }
 
                 Console.Clear();
-                
+
+                /*
                 //Fills 2d array with random numbers
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
                 {
@@ -138,6 +142,7 @@ namespace SlotMachine2
                         numbers2d[column, row] = randomNumber.Next(0, 3);
                     }
                 }
+                */
 
                 //Writes numbers in matrix to user
                 for (int column = 0; column < numbers2d.GetLength(0); column++)
@@ -281,23 +286,20 @@ namespace SlotMachine2
                     }
                 }
 
-                /*
                 //Checking diagonal lines
                 if (playPicker == 4)
                 {
-                    int counter = 0;
-                    for (int i = 0; i < numbers2d.GetLength(0); i++)
+                    if (numbers2d[0, 0].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 2]))
                     {
-                        for (int j = 0; j < numbers2d.GetLength(1); j += 2)
-                        {
-                            if (numbers2d[0, 1] == numbers2d[i, j])
-                            {
-                                counter++;
-                            }
-                        }
+                        counter1++;
                     }
 
-                    if (counter == 5)
+                    if (numbers2d[0, 2].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 0]))
+                    {
+                        counter1++;
+                    }
+
+                    if (counter1 == 2)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 50;
@@ -307,8 +309,7 @@ namespace SlotMachine2
                         Console.WriteLine(lossMessage);
                     }
                 }
-                */
-
+                
                 //Outputs gamemoney
                 Console.WriteLine("$" + gameMoney);
 
