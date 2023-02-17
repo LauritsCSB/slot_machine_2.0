@@ -17,7 +17,7 @@ namespace SlotMachine2
             int[,] numbers2d = { { 0, 0, 0 },
                                  { 0, 0, 0 },
                                  { 0, 0, 0 } };
-            int[] possiblePlays = new int[] { 1, 2, 3, 4};
+            int[] possiblePlays = new int[] { 1, 2, 3, 4, 5, 6};
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string playOrNo = "y";
@@ -115,7 +115,7 @@ namespace SlotMachine2
                         }
                     }
 
-                    /*
+                    
                     if (playPicker == 6)
                     {
                         if (5 > gameMoney)
@@ -128,7 +128,7 @@ namespace SlotMachine2
                             gameMoney -= 5;
                         }
                     }
-                    */
+                    
                 }
 
                 Console.Clear();
@@ -248,7 +248,7 @@ namespace SlotMachine2
                             }
                         }
 
-                        if (counter1 == 3)
+                        if (counter1 == 6)
                         {
                             counter2++;
                         }
@@ -264,7 +264,7 @@ namespace SlotMachine2
                             }
                         }
 
-                        if (counter1 == 3)
+                        if (counter1 == 9)
                         {
                             counter2++;
                         }
@@ -275,7 +275,7 @@ namespace SlotMachine2
                         Console.WriteLine(winMessage);
                         gameMoney += 6;
                     }
-                    else if (counter2 >= 2)
+                    else if (counter2 == 2 || counter2 == 3)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 20;
@@ -287,7 +287,7 @@ namespace SlotMachine2
                 }
 
                 //Checking diagonal lines
-                if (playPicker == 4)
+                if (playPicker == 6)
                 {
                     if (numbers2d[0, 0].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 2]))
                     {
