@@ -27,7 +27,7 @@ namespace SlotMachine2
             {
                 //Lets user pick what to bet on
                 Console.WriteLine("Here's the possible play options:\n1. Center row ($1 cost, 2x reward)\n2. " +
-                    "All rows ($3 cost, 6x reward)\n3. Center column  (2$ cost, 3x reward)\n4. All columns ($4 cost, 8x reward)\n5. Diagonal lines ($5 cost, 10x reward)");
+                    "All rows ($3 cost, 6x reward)\n3. Center column  (2$ cost, 3x reward)\n4. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     Console.WriteLine($"You've picked: {playPicker}");
@@ -88,19 +88,6 @@ namespace SlotMachine2
 
                     if (playPicker == 4)
                     {
-                        if (4 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 4;
-                        }
-                    }
-
-                    if (playPicker == 5)
-                    {
                         if (5 > gameMoney)
                         {
                             Console.WriteLine(gameMoneyError);
@@ -111,7 +98,6 @@ namespace SlotMachine2
                             gameMoney -= 5;
                         }
                     }
-
                 }
 
                 Console.Clear();
