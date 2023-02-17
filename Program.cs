@@ -88,6 +88,19 @@ namespace SlotMachine2
 
                     if (playPicker == 4)
                     {
+                        if (2 > gameMoney)
+                        {
+                            Console.WriteLine(gameMoneyError);
+                            continue;
+                        }
+                        else
+                        {
+                            gameMoney -= 2;
+                        }
+                    }
+
+                    if (playPicker == 5)
+                    {
                         if (4 > gameMoney)
                         {
                             Console.WriteLine(gameMoneyError);
@@ -100,7 +113,7 @@ namespace SlotMachine2
                     }
 
                     /*
-                    if (playPicker == 4)
+                    if (playPicker == 6)
                     {
                         if (5 > gameMoney)
                         {
