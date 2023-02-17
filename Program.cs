@@ -167,6 +167,7 @@ namespace SlotMachine2
                         }
                     }
 
+                    counter1 = 0;
                     for (int i = 0; i < numbers2d.GetLength(1); i++)
                     {
                         if (numbers2d[1, 0] == numbers2d[1, i])
@@ -180,6 +181,7 @@ namespace SlotMachine2
                         }
                     }
 
+                    counter1 = 0;
                     for (int i = 0; i < numbers2d.GetLength(1); i++)
                     {
                         if (numbers2d[2, 0] == numbers2d[2, i])
@@ -193,17 +195,17 @@ namespace SlotMachine2
                         }
                     }
 
-                    if (counter2 == 1)
+                    if (counter2 == 1 && playPicker == 1)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 3;
                     }
-                    else if (counter2 == 2)
+                    else if (counter2 == 2 && playPicker == 2)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 12;
                     }
-                    else if (counter2 == 3)
+                    else if (counter2 == 3 && playPicker == 3)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 25;
@@ -233,6 +235,7 @@ namespace SlotMachine2
                         }
                     }
 
+                    counter1 = 0;
                     for (int i = 0; i < numbers2d.GetLength(0); i++)
                     {
                         for (int j = 1; j < numbers2d.GetLength(1); j += 3)
@@ -243,12 +246,13 @@ namespace SlotMachine2
                             }
                         }
 
-                        if (counter1 == 6)
+                        if (counter1 == 3)
                         {
                             counter2++;
                         }
                     }
 
+                    counter1 = 0;
                     for (int i = 0; i < numbers2d.GetLength(0); i++)
                     {
                         for (int j = 2; j < numbers2d.GetLength(1); j += 3)
@@ -259,18 +263,18 @@ namespace SlotMachine2
                             }
                         }
 
-                        if (counter1 == 9)
+                        if (counter1 == 3)
                         {
                             counter2++;
                         }
                     }
 
-                    if (counter2 == 1)
+                    if (counter2 >= 1 && playPicker == 4)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 6;
                     }
-                    else if (counter2 == 2 || counter2 == 3)
+                    else if (counter2 >= 2 && playPicker == 5)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 20;
