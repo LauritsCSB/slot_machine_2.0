@@ -9,10 +9,17 @@ namespace SlotMachine2
         const int GAMEMONEY = 100;
         static void Main(string[] args)
         {
+            Random randomNumber = new Random();
+            Dictionary<int, int> Playlist = new Dictionary<int, int>();
+            Playlist.Add(1, 1);
+            Playlist.Add(2, 3);
+            Playlist.Add(3, 5);
+            Playlist.Add(4, 2);
+            Playlist.Add(5, 4);
+            Playlist.Add(6, 5);
             int playPicker;
             int gameMoney = GAMEMONEY;
             int userBet;
-            Random randomNumber = new Random();
             int[,] numbers2d = new int[3, 3];
             int[] possiblePlays = new int[] { 1, 2, 3, 4, 5, 6};
             string winMessage = "Win!";
@@ -47,85 +54,7 @@ namespace SlotMachine2
                 }
                 else
                 {
-                    if (playPicker == 1)
-                    {
-                        if (1 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 1;
-                        }
-                    }
-
-                    if (playPicker == 2)
-                    {
-                        if (3 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 3;
-                        }
-                    }
-
-                    if (playPicker == 3)
-                    {
-                        if (5 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 5;
-                        }
-                    }
-
-                    if (playPicker == 4)
-                    {
-                        if (2 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 2;
-                        }
-                    }
-
-                    if (playPicker == 5)
-                    {
-                        if (4 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 4;
-                        }
-                    }
-
-                    
-                    if (playPicker == 6)
-                    {
-                        if (5 > gameMoney)
-                        {
-                            Console.WriteLine(gameMoneyError);
-                            continue;
-                        }
-                        else
-                        {
-                            gameMoney -= 5;
-                        }
-                    }
-                    
+                    gameMoney -= Playlist[playPicker];    
                 }
 
                 Console.Clear();
