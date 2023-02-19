@@ -21,12 +21,9 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             int userBet;
             int[,] numbers2d = new int[3, 3];
-            int[] possiblePlays = new int[] { 1, 2, 3, 4, 5, 6};
             string winMessage = "Win!";
             string lossMessage = "No win..";
             string playOrNo = "y";
-            string gameMoneyError = $"Sorry, you only have {gameMoney} left.";
-            string gameMoneyAccept = "Bet taken!";
 
             Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1 or 3 rows, 1 or 3 columns or diagonals. " +
                 "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.\n");
@@ -37,7 +34,15 @@ namespace SlotMachine2
                     "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 cost 5x reward)\n6. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
-                    Console.WriteLine($"You've picked: {playPicker}");
+                    if (Playlist.ContainsKey(playPicker))
+                    {
+                        gameMoney -= Playlist[playPicker];    
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        continue;
+                    }
                 }
                 else
                 {
@@ -47,15 +52,6 @@ namespace SlotMachine2
 
 
                 //Checks if user input is supperted by program and withdraws bet from gamemoney
-                if (!Array.Exists(possiblePlays, element => element == playPicker))
-                {
-                    Console.Clear();
-                    continue;
-                }
-                else
-                {
-                    gameMoney -= Playlist[playPicker];    
-                }
 
                 Console.Clear();
 
