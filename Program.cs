@@ -25,7 +25,7 @@ namespace SlotMachine2
             string lossMessage = "No win..";
             string playOrNo = "y";
 
-            Console.WriteLine("Hello user, this is a slot machine. You can choose to make a bet on 1 or 3 rows, 1 or 3 columns or diagonals. " +
+            Console.WriteLine("Hello user, this is a slot machine. You can choose to bet on what you think the matrix will show. " +
                 "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.\n");
             do
             {
@@ -50,9 +50,6 @@ namespace SlotMachine2
                     continue;
                 }
 
-
-                //Checks if user input is supperted by program and withdraws bet from gamemoney
-
                 Console.Clear();
 
                 //Fills 2d array with random numbers
@@ -74,8 +71,8 @@ namespace SlotMachine2
                     Console.WriteLine();
                 }
 
-                int counter1 = 0;
-                int counter2 = 0;
+                int matchingNumbers = 0;
+                int matchingLines = 0;
                 //Checking rows
                 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
@@ -83,54 +80,54 @@ namespace SlotMachine2
                     {
                         if (numbers2d[0, 0] == numbers2d[0, i])
                         {
-                            counter1++;
+                            matchingNumbers++;
                         }
 
-                        if (counter1 == 3)
+                        if (matchingNumbers == 3)
                         {
-                            counter2++;
+                            matchingLines++;
                         }
                     }
 
-                    counter1 = 0;
+                    matchingNumbers = 0;
                     for (int i = 0; i < numbers2d.GetLength(1); i++)
                     {
                         if (numbers2d[1, 0] == numbers2d[1, i])
                         {
-                            counter1++;
+                            matchingNumbers++;
                         }
 
-                        if (counter1 == 3)
+                        if (matchingNumbers == 3)
                         {
-                            counter2++;
+                            matchingLines++;
                         }
                     }
 
-                    counter1 = 0;
+                    matchingNumbers = 0;
                     for (int i = 0; i < numbers2d.GetLength(1); i++)
                     {
                         if (numbers2d[2, 0] == numbers2d[2, i])
                         {
-                            counter1++;
+                            matchingNumbers++;
                         }
 
-                        if (counter1 == 3)
+                        if (matchingNumbers == 3)
                         {
-                            counter2++;
+                            matchingLines++;
                         }
                     }
 
-                    if (counter2 == 1 && playPicker == 1)
+                    if (matchingLines == 1 && playPicker == 1)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 3;
                     }
-                    else if (counter2 == 2 && playPicker == 2)
+                    else if (matchingLines == 2 && playPicker == 2)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 12;
                     }
-                    else if (counter2 == 3 && playPicker == 3)
+                    else if (matchingLines == 3 && playPicker == 3)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 25;
@@ -150,56 +147,56 @@ namespace SlotMachine2
                         {
                             if (numbers2d[0, 0] == numbers2d[i, j])
                             {
-                                counter1++;
+                                matchingNumbers++;
                             }
                         }
 
-                        if (counter1 == 3)
+                        if (matchingNumbers == 3)
                         {
-                            counter2++;
+                            matchingLines++;
                         }
                     }
 
-                    counter1 = 0;
+                    matchingNumbers = 0;
                     for (int i = 0; i < numbers2d.GetLength(0); i++)
                     {
                         for (int j = 1; j < numbers2d.GetLength(1); j += 3)
                         {
                             if (numbers2d[0, 1] == numbers2d[i, j])
                             {
-                                counter1++;
+                                matchingNumbers++;
                             }
                         }
 
-                        if (counter1 == 3)
+                        if (matchingNumbers == 3)
                         {
-                            counter2++;
+                            matchingLines++;
                         }
                     }
 
-                    counter1 = 0;
+                    matchingNumbers = 0;
                     for (int i = 0; i < numbers2d.GetLength(0); i++)
                     {
                         for (int j = 2; j < numbers2d.GetLength(1); j += 3)
                         {
                             if (numbers2d[0, 2] == numbers2d[i, j])
                             {
-                                counter1++;
+                                matchingNumbers++;
                             }
                         }
 
-                        if (counter1 == 3)
+                        if (matchingNumbers == 3)
                         {
-                            counter2++;
+                            matchingLines++;
                         }
                     }
 
-                    if (counter2 >= 1 && playPicker == 4)
+                    if (matchingLines >= 1 && playPicker == 4)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 6;
                     }
-                    else if (counter2 >= 2 && playPicker == 5)
+                    else if (matchingLines >= 2 && playPicker == 5)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 20;
@@ -215,15 +212,15 @@ namespace SlotMachine2
                 {
                     if (numbers2d[0, 0].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 2]))
                     {
-                        counter1++;
+                        matchingNumbers++;
                     }
 
                     if (numbers2d[0, 2].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 0]))
                     {
-                        counter1++;
+                        matchingNumbers++;
                     }
 
-                    if (counter1 == 2)
+                    if (matchingNumbers == 2)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += 50;
