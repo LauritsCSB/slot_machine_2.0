@@ -17,6 +17,13 @@ namespace SlotMachine2
             Playlist.Add(4, 2);
             Playlist.Add(5, 4);
             Playlist.Add(6, 5);
+            Dictionary<int, int> Payout = new Dictionary<int, int>();
+            Payout.Add(1, 3);
+            Payout.Add(2, 12);
+            Payout.Add(3, 25);
+            Payout.Add(4, 6);
+            Payout.Add(5, 20);
+            Payout.Add(6, 50);
             int playPicker;
             int gameMoney = GAMEMONEY;
             int userBet;
@@ -120,17 +127,17 @@ namespace SlotMachine2
                     if (matchingLines == 1 && playPicker == 1)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 3;
+                        gameMoney += Payout[playPicker];
                     }
                     else if (matchingLines == 2 && playPicker == 2)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 12;
+                        gameMoney += Payout[playPicker];
                     }
                     else if (matchingLines == 3 && playPicker == 3)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 25;
+                        gameMoney += Payout[playPicker];
                     }
                     else
                     {
@@ -194,12 +201,12 @@ namespace SlotMachine2
                     if (matchingLines >= 1 && playPicker == 4)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 6;
+                        gameMoney += Payout[playPicker];
                     }
                     else if (matchingLines >= 2 && playPicker == 5)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 20;
+                        gameMoney += Payout[playPicker];
                     }
                     else
                     {
@@ -223,7 +230,7 @@ namespace SlotMachine2
                     if (matchingNumbers == 2)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += 50;
+                        gameMoney += Payout[playPicker];
                     }
                     else
                     {
