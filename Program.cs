@@ -83,44 +83,20 @@ namespace SlotMachine2
                 //Checking rows
                 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
-                    for (int i = 0; i < numbers2d.GetLength(1); i++)
+                    for (int row = 0; row < numbers2d.GetLength(1); row++)
                     {
-                        if (numbers2d[0, 0] == numbers2d[0, i])
+                        matchingNumbers = 0;
+                        for (int column = 0; column < numbers2d.GetLength(1); column++)
                         {
-                            matchingNumbers++;
-                        }
+                            if (numbers2d[row, 0] == numbers2d[row, column])
+                            {
+                                matchingNumbers++;
+                            }
 
-                        if (matchingNumbers == 3)
-                        {
-                            matchingLines++;
-                        }
-                    }
-
-                    matchingNumbers = 0;
-                    for (int i = 0; i < numbers2d.GetLength(1); i++)
-                    {
-                        if (numbers2d[1, 0] == numbers2d[1, i])
-                        {
-                            matchingNumbers++;
-                        }
-
-                        if (matchingNumbers == 3)
-                        {
-                            matchingLines++;
-                        }
-                    }
-
-                    matchingNumbers = 0;
-                    for (int i = 0; i < numbers2d.GetLength(1); i++)
-                    {
-                        if (numbers2d[2, 0] == numbers2d[2, i])
-                        {
-                            matchingNumbers++;
-                        }
-
-                        if (matchingNumbers == 3)
-                        {
-                            matchingLines++;
+                            if (matchingNumbers == 3)
+                            {
+                                matchingLines++;
+                            }
                         }
                     }
 
