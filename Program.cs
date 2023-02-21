@@ -193,12 +193,12 @@ namespace SlotMachine2
                 //Checking diagonal lines
                 if (playPicker == 6)
                 {
-                    if (numbers2d[0, 0].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 2]))
+                    if (numbers2d[0, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 2])
                     {
                         matchingNumbers++;
                     }
 
-                    if (numbers2d[0, 2].Equals(numbers2d[1, 1]) && numbers2d[1, 1].Equals(numbers2d[2, 0]))
+                    if (numbers2d[0, 2] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 0])
                     {
                         matchingNumbers++;
                     }
