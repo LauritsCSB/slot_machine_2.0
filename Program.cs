@@ -100,17 +100,7 @@ namespace SlotMachine2
                         }
                     }
 
-                    if (matchingLines == 1 && playPicker == 1)
-                    {
-                        Console.WriteLine(winMessage);
-                        gameMoney += Payout[playPicker];
-                    }
-                    else if (matchingLines == 2 && playPicker == 2)
-                    {
-                        Console.WriteLine(winMessage);
-                        gameMoney += Payout[playPicker];
-                    }
-                    else if (matchingLines == 3 && playPicker == 3)
+                    if (matchingLines == playPicker)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += Payout[playPicker];
