@@ -33,12 +33,12 @@ namespace SlotMachine2
             string playOrNo = "y";
 
             Console.WriteLine("Hello user, this is a slot machine. You can choose to bet on what you think the matrix will show. " +
-                "The more rows, columns and diagonals you choose to bet on, the higher the price! You start with $100 dollars.\n");
+                "The more rows, columns and diagonals you choose to bet on, the higher the payout! You start with $100 dollars.\n");
             do
             {
                 //Lets user pick what to bet on
-                Console.WriteLine("Here's the possible play options:\n1. One row ($1 cost, 3x reward)\n2. Two rows ($3 cost, 4x reward)\n3. " +
-                    "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 cost 5x reward)\n6. Diagonal lines ($5 cost, 10x reward)");
+                Console.WriteLine($"Here's the possible play options:\n1. One row ($1 cost, ${payout[1]} reward)\n2. Two rows ($3 cost, ${payout[2]} reward)\n3. " +
+                    $"All rows ($5 cost, ${payout[3]} reward)\n4. One column  (2$ cost, ${payout[4]} reward)\n5. Two columns ($4 cost ${payout[5]} reward)\n6. Diagonal lines ($5 cost, ${payout[6]} reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     if (playCost.ContainsKey(playPicker))
