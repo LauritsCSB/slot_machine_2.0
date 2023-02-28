@@ -60,20 +60,20 @@ namespace SlotMachine2
                 Console.Clear();
 
                 //Fills 2d array with random numbers
-                for (int column = 0; column < numbers2d.GetLength(0); column++)
+                for (int row = 0; row < numbers2d.GetLength(0); row++)
                 {
-                    for (int row = 0; row < numbers2d.GetLength(1); row++)
+                    for (int column = 0; column < numbers2d.GetLength(1); column++)
                     {
-                        numbers2d[column, row] = randomNumber.Next(0, 3);
+                        numbers2d[row, column] = randomNumber.Next(0, 3);
                     }
                 }
 
                 //Writes numbers in matrix to user
-                for (int column = 0; column < numbers2d.GetLength(0); column++)
+                for (int row = 0; row < numbers2d.GetLength(0); row++)
                 {
-                    for (int row = 0; row < numbers2d.GetLength(1); row++)
+                    for (int column = 0; column < numbers2d.GetLength(1); column++)
                     {
-                        Console.Write(numbers2d[column, row] + " ");
+                        Console.Write(numbers2d[row, column] + " ");
                     }
                     Console.WriteLine();
                 }
