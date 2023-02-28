@@ -100,7 +100,7 @@ namespace SlotMachine2
                         }
                     }
 
-                    if (matchingLines == playPicker)
+                    if (matchingLines >= playPicker)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += payout[playPicker];
@@ -160,7 +160,7 @@ namespace SlotMachine2
                         matchingNumbers++;
                     }
 
-                    if (matchingNumbers == 2)
+                    if (matchingNumbers >= 2)
                     {
                         Console.WriteLine(winMessage);
                         gameMoney += payout[playPicker];
