@@ -36,6 +36,7 @@ namespace SlotMachine2
                 "The more rows, columns and diagonals you choose to bet on, the higher the payout! You start with $100 dollars.\n");
             do
             {
+                bool winOrLoose = false;
                 //Lets user pick what to bet on
                 Console.WriteLine($"Here's the possible play options:\n1. One row ($1 cost, ${payout[1]} reward)\n2. Two rows ($3 cost, ${payout[2]} reward)\n3. " +
                     $"All rows ($5 cost, ${payout[3]} reward)\n4. One column  (2$ cost, ${payout[4]} reward)\n5. Two columns ($4 cost ${payout[5]} reward)\n6. Diagonal lines ($5 cost, ${payout[6]} reward)");
@@ -102,12 +103,7 @@ namespace SlotMachine2
 
                     if (matchingLines >= playPicker)
                     {
-                        Console.WriteLine(winMessage);
-                        gameMoney += payout[playPicker];
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
+                        winOrLoose = true;
                     }
                 }
 
@@ -133,17 +129,11 @@ namespace SlotMachine2
 
                     if (matchingLines >= 1 && playPicker == 4)
                     {
-                        Console.WriteLine(winMessage);
-                        gameMoney += payout[playPicker];
+                        winOrLoose = true;
                     }
                     else if (matchingLines >= 2 && playPicker == 5)
                     {
-                        Console.WriteLine(winMessage);
-                        gameMoney += payout[playPicker];
-                    }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
+                        winOrLoose = true;
                     }
                 }
 
@@ -162,13 +152,18 @@ namespace SlotMachine2
 
                     if (matchingNumbers >= 2)
                     {
-                        Console.WriteLine(winMessage);
-                        gameMoney += payout[playPicker];
+                        winOrLoose = true;
                     }
-                    else
-                    {
-                        Console.WriteLine(lossMessage);
-                    }
+                }
+
+                if (winOrLoose)
+                {
+                    Console.WriteLine(winMessage);
+                    gameMoney += payout[playPicker];
+                }
+                else
+                {
+                    Console.WriteLine(lossMessage);
                 }
                 
                 //Outputs gamemoney
