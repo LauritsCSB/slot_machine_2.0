@@ -83,7 +83,7 @@ namespace SlotMachine2
                 //Checking rows
                 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
-                    for (int row = 0; row < numbers2d.GetLength(1); row++)
+                    for (int row = 0; row < numbers2d.GetLength(0); row++)
                     {
                         matchingNumbers = 0;
                         for (int column = 0; column < numbers2d.GetLength(1); column++)
@@ -93,10 +93,10 @@ namespace SlotMachine2
                                 matchingNumbers++;
                             }
 
-                            if (matchingNumbers == 3)
-                            {
-                                matchingLines++;
-                            }
+                        }
+                        if (matchingNumbers == 3)
+                        {
+                            matchingLines++;
                         }
                     }
 
