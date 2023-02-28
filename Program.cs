@@ -10,20 +10,20 @@ namespace SlotMachine2
         static void Main(string[] args)
         {
             Random randomNumber = new Random();
-            Dictionary<int, int> Playlist = new Dictionary<int, int>();
-            Playlist.Add(1, 1);
-            Playlist.Add(2, 3);
-            Playlist.Add(3, 5);
-            Playlist.Add(4, 2);
-            Playlist.Add(5, 4);
-            Playlist.Add(6, 5);
-            Dictionary<int, int> Payout = new Dictionary<int, int>();
-            Payout.Add(1, 3);
-            Payout.Add(2, 12);
-            Payout.Add(3, 25);
-            Payout.Add(4, 6);
-            Payout.Add(5, 20);
-            Payout.Add(6, 50);
+            Dictionary<int, int> playCost = new Dictionary<int, int>();
+            playCost.Add(1, 1);
+            playCost.Add(2, 3);
+            playCost.Add(3, 5);
+            playCost.Add(4, 2);
+            playCost.Add(5, 4);
+            playCost.Add(6, 5);
+            Dictionary<int, int> payout = new Dictionary<int, int>();
+            payout.Add(1, 3);
+            payout.Add(2, 12);
+            payout.Add(3, 25);
+            payout.Add(4, 6);
+            payout.Add(5, 20);
+            payout.Add(6, 50);
             int playPicker;
             int gameMoney = GAMEMONEY;
             int userBet;
@@ -41,9 +41,9 @@ namespace SlotMachine2
                     "All rows ($5 cost, 5x reward)\n4. One column  (2$ cost, 3x reward)\n5. Two columns ($4 cost 5x reward)\n6. Diagonal lines ($5 cost, 10x reward)");
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
-                    if (Playlist.ContainsKey(playPicker))
+                    if (playCost.ContainsKey(playPicker))
                     {
-                        gameMoney -= Playlist[playPicker];    
+                        gameMoney -= playCost[playPicker];    
                     }
                     else
                     {
@@ -103,7 +103,7 @@ namespace SlotMachine2
                     if (matchingLines == playPicker)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += Payout[playPicker];
+                        gameMoney += payout[playPicker];
                     }
                     else
                     {
@@ -114,45 +114,12 @@ namespace SlotMachine2
                 //Checking columns
                 if (playPicker == 4 || playPicker == 5)
                 {
-                    for (int i = 0; i < numbers2d.GetLength(0); i++)
+                    for (int column = 0; column < numbers2d.GetLength(1); column++)
                     {
-                        for (int j = 0; j < numbers2d.GetLength(1); j += 3)
+                        matchingNumbers = 0;
+                        for (int row = 0; row < numbers2d.GetLength(0); row ++)
                         {
-                            if (numbers2d[0, 0] == numbers2d[i, j])
-                            {
-                                matchingNumbers++;
-                            }
-                        }
-
-                        if (matchingNumbers == 3)
-                        {
-                            matchingLines++;
-                        }
-                    }
-
-                    matchingNumbers = 0;
-                    for (int i = 0; i < numbers2d.GetLength(0); i++)
-                    {
-                        for (int j = 1; j < numbers2d.GetLength(1); j += 3)
-                        {
-                            if (numbers2d[0, 1] == numbers2d[i, j])
-                            {
-                                matchingNumbers++;
-                            }
-                        }
-
-                        if (matchingNumbers == 3)
-                        {
-                            matchingLines++;
-                        }
-                    }
-
-                    matchingNumbers = 0;
-                    for (int i = 0; i < numbers2d.GetLength(0); i++)
-                    {
-                        for (int j = 2; j < numbers2d.GetLength(1); j += 3)
-                        {
-                            if (numbers2d[0, 2] == numbers2d[i, j])
+                            if (numbers2d[0, column] == numbers2d[row, column])
                             {
                                 matchingNumbers++;
                             }
@@ -167,12 +134,12 @@ namespace SlotMachine2
                     if (matchingLines >= 1 && playPicker == 4)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += Payout[playPicker];
+                        gameMoney += payout[playPicker];
                     }
                     else if (matchingLines >= 2 && playPicker == 5)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += Payout[playPicker];
+                        gameMoney += payout[playPicker];
                     }
                     else
                     {
@@ -196,7 +163,7 @@ namespace SlotMachine2
                     if (matchingNumbers == 2)
                     {
                         Console.WriteLine(winMessage);
-                        gameMoney += Payout[playPicker];
+                        gameMoney += payout[playPicker];
                     }
                     else
                     {
