@@ -1,6 +1,4 @@
-﻿//TODO Change program to make the user play on: center row, all three rows or diagonal lines,
-//work out from existing for loop checking middle row, iterate +2 for checking diagonals
-
+﻿using slot_machine_2._0;
 
 namespace SlotMachine2
 {
@@ -36,14 +34,13 @@ namespace SlotMachine2
             string lossMessage = "No win..";
             string playOrNo = "y";
 
-            Console.WriteLine("Hello user, this is a slot machine. You can choose to bet on what you think the matrix will show. " +
-                "The more rows, columns and diagonals you choose to bet on, the higher the payout! You start with $100 dollars.\n");
+            UIMethods.DisplayWelcomeMessage();
             do
             {
                 bool winOrLoose = false;
                 //Lets user pick what to bet on
-                Console.WriteLine($"Here's the possible play options:\n1. One row ($1 cost, ${payout[1]} reward)\n2. Two rows ($3 cost, ${payout[2]} reward)\n3. " +
-                    $"All rows ($5 cost, ${payout[3]} reward)\n4. One column  (2$ cost, ${payout[4]} reward)\n5. Two columns ($4 cost ${payout[5]} reward)\n6. Diagonal lines ($5 cost, ${payout[6]} reward)");
+                UIMethods.DisplayPlayOptions();
+                
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
                     if (playCost.ContainsKey(playPicker))
@@ -188,6 +185,20 @@ namespace SlotMachine2
             {
                 Console.WriteLine("Sorry, you've lost. See you next time!");
             }
+        }
+
+        public static int PayoutDictionary(int key)
+        {
+            Dictionary<int, int> payout = new Dictionary<int, int>
+            {
+                {1, 3},
+                {2, 12},
+                {3, 25},
+                {4, 6},
+                {5, 20},
+                {6, 50}
+            };
+            return payout[key];
         }
     }
 }
