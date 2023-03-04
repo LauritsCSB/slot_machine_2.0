@@ -10,20 +10,24 @@ namespace SlotMachine2
         static void Main(string[] args)
         {
             Random randomNumber = new Random();
-            Dictionary<int, int> playCost = new Dictionary<int, int>();
-            playCost.Add(1, 1);
-            playCost.Add(2, 3);
-            playCost.Add(3, 5);
-            playCost.Add(4, 2);
-            playCost.Add(5, 4);
-            playCost.Add(6, 5);
-            Dictionary<int, int> payout = new Dictionary<int, int>();
-            payout.Add(1, 3);
-            payout.Add(2, 12);
-            payout.Add(3, 25);
-            payout.Add(4, 6);
-            payout.Add(5, 20);
-            payout.Add(6, 50);
+            Dictionary<int, int> playCost = new Dictionary<int, int>
+            {
+                {1, 1},
+                {2, 3},
+                {3, 5},
+                {4, 2},
+                {5, 4},
+                {6, 5}
+            };
+            Dictionary<int, int> payout = new Dictionary<int, int>
+            {
+                {1, 3},
+                {2, 12},
+                {3, 25},
+                {4, 6},
+                {5, 20},
+                {6, 50}
+            };
             int playPicker;
             int gameMoney = GAMEMONEY;
             int userBet;
