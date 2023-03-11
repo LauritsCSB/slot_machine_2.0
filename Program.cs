@@ -30,8 +30,6 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             int userBet;
             int[,] numbers2d = new int[3, 3];
-            string winMessage = "Win!";
-            string lossMessage = "No win..";
             string playOrNo = "y";
 
             UIMethods.DisplayWelcomeMessage();
@@ -156,14 +154,11 @@ namespace SlotMachine2
                     }
                 }
 
+                UIMethods.WinOrLooseMessage(winOrLoose);
+
                 if (winOrLoose)
                 {
-                    Console.WriteLine(winMessage);
                     gameMoney += payout[playPicker];
-                }
-                else
-                {
-                    Console.WriteLine(lossMessage);
                 }
 
                 //Outputs gamemoney
@@ -175,7 +170,7 @@ namespace SlotMachine2
                 Console.Clear();
             } while (gameMoney > 0 && playOrNo.Contains("y"));
 
-            UIMethods.WinLooseMessage(gameMoney);
+            UIMethods.GameOverMessage(gameMoney);
         }
 
         public static int PayoutDictionary(int key)

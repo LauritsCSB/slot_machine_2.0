@@ -31,7 +31,7 @@ namespace slot_machine_2._0
 
         }
 
-        public static void WinLooseMessage(int money)
+        public static void GameOverMessage(int money)
         {
             if (money > 0)
             {
@@ -40,6 +40,18 @@ namespace slot_machine_2._0
             else
             {
                 Console.WriteLine("Sorry, you've lost. See you next time!");
+            }
+        }
+
+        public static void WinOrLooseMessage(bool winOrNot)
+        {
+            if (winOrNot)
+            {
+                Console.WriteLine("Win!");
+            }
+            else
+            {
+                Console.WriteLine("No win..");
             }
         }
     }
