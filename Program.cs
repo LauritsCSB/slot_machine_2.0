@@ -27,13 +27,13 @@ namespace SlotMachine2
                 {6, 50}
             });
         const int GAMEMONEY = 100;
+        public static int[,] numbers2d = new int[3, 3];
         static void Main(string[] args)
         {
             Random randomNumber = new Random();
             int playPicker;
             int gameMoney = GAMEMONEY;
             int userBet;
-            int[,] numbers2d = new int[3, 3];
             string playOrNo = "y";
 
             UIMethods.DisplayWelcomeMessage();
@@ -57,23 +57,10 @@ namespace SlotMachine2
                 UIMethods.ClearConsole();
 
                 //Fills 2d array with random numbers
-                for (int row = 0; row < numbers2d.GetLength(0); row++)
-                {
-                    for (int column = 0; column < numbers2d.GetLength(1); column++)
-                    {
-                        numbers2d[row, column] = randomNumber.Next(0, 3);
-                    }
-                }
+                FillMatrixWithRandomNumbers(numbers2d);
 
                 //Writes numbers in matrix to user
-                for (int row = 0; row < numbers2d.GetLength(0); row++)
-                {
-                    for (int column = 0; column < numbers2d.GetLength(1); column++)
-                    {
-                        Console.Write(numbers2d[row, column] + " ");
-                    }
-                    Console.WriteLine();
-                }
+                UIMethods.DisplayNumbersMatrix(Program.numbers2d);
 
                 int matchingNumbers = 0;
                 int matchingLines = 0;
@@ -169,6 +156,19 @@ namespace SlotMachine2
             } while (gameMoney > 0 && playOrNo.Contains("y"));
 
             UIMethods.GameOverMessage(gameMoney);
+        }
+
+        public static int[,] FillMatrixWithRandomNumbers(int[,] array)
+        {
+            Random randomNumber = new Random();
+            for (int row = 0; row < array.GetLength(0); row++)
+            {
+                for (int column = 0; column < array.GetLength(1); column++)
+                {
+                    array[row, column] = randomNumber.Next(0, 3);
+                }
+            }
+            return array;
         }
     }
 }

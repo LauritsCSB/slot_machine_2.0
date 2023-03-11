@@ -23,7 +23,18 @@ namespace slot_machine_2._0
             int.TryParse(Console.ReadLine(), out playPick);
             
             return playPick;
-            
+        }
+
+        public static void DisplayNumbersMatrix(int[,] array)
+        {
+            for (int row = 0; row < array.GetLength(0); row++)
+            {
+                for (int column = 0; column < array.GetLength(1); column++)
+                {
+                    Console.Write(array[row, column] + " ");
+                }
+                Console.WriteLine();
+            }
         }
 
         public static void OutputGamemoney(int money)
