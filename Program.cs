@@ -5,7 +5,7 @@ namespace SlotMachine2
 {
     internal class Program
     {
-        private static readonly ReadOnlyDictionary<int, int> PlayCost = new ReadOnlyDictionary<int, int>(
+        public static readonly ReadOnlyDictionary<int, int> PlayCost = new ReadOnlyDictionary<int, int>(
             new Dictionary<int, int>
             {
                 {1, 1},
@@ -14,6 +14,17 @@ namespace SlotMachine2
                 {4, 2},
                 {5, 4},
                 {6, 5}
+            });
+
+        public static readonly ReadOnlyDictionary<int, int> Payout = new ReadOnlyDictionary<int, int>(
+            new Dictionary<int, int>
+            {
+                {1, 3},
+                {2, 12},
+                {3, 25},
+                {4, 6},
+                {5, 20},
+                {6, 50}
             });
         const int GAMEMONEY = 100;
         static void Main(string[] args)
@@ -160,7 +171,7 @@ namespace SlotMachine2
 
                 if (winOrLoose)
                 {
-                    gameMoney += payout[playPicker];
+                    gameMoney += Program.Payout[playPicker];
                 }
 
                 //Outputs gamemoney
