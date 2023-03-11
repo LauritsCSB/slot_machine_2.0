@@ -16,6 +16,32 @@ namespace slot_machine_2._0
             Console.WriteLine($"Here's the possible play options:\n1. One row ($1 cost, ${Program.PayoutDictionary(1)} reward)\n2. Two rows ($3 cost, ${Program.PayoutDictionary(2)} reward)\n3. " +
                     $"All rows ($5 cost, ${Program.PayoutDictionary(3)} reward)\n4. One column  (2$ cost, ${Program.PayoutDictionary(4)} reward)\n5. Two columns ($4 cost ${Program.PayoutDictionary(5)} reward)\n6. Diagonal lines ($5 cost, ${Program.PayoutDictionary(6)} reward)");
         }
+
+        public static void OutputGamemoney(int money)
+        {
+            Console.WriteLine("$" + money);
+        }
+
+        public static string PlayAgain()
+        {
+            string userAnswer = "y";
+            Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");
+            userAnswer = Console.ReadLine();
+            return userAnswer;
+
+        }
+
+        public static void WinLooseMessage(int money)
+        {
+            if (money > 0)
+            {
+                Console.WriteLine($"Congratulations! You won: {money}");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, you've lost. See you next time!");
+            }
+        }
     }
 }
 

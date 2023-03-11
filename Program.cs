@@ -38,7 +38,6 @@ namespace SlotMachine2
             do
             {
                 bool winOrLoose = false;
-                //Lets user pick what to bet on
                 UIMethods.DisplayPlayOptions();
                 
                 if (int.TryParse(Console.ReadLine(), out playPicker))
@@ -166,25 +165,17 @@ namespace SlotMachine2
                 {
                     Console.WriteLine(lossMessage);
                 }
-                
+
                 //Outputs gamemoney
-                Console.WriteLine("$" + gameMoney);
+                UIMethods.OutputGamemoney(gameMoney);
 
                 //Asks for new round
-                Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");
-                playOrNo = Console.ReadLine();
+                playOrNo = UIMethods.PlayAgain();
 
                 Console.Clear();
             } while (gameMoney > 0 && playOrNo.Contains("y"));
 
-            if (gameMoney > 0)
-            {
-                Console.WriteLine($"Congratulations! You won: {gameMoney}");
-            }
-            else
-            {
-                Console.WriteLine("Sorry, you've lost. See you next time!");
-            }
+            UIMethods.WinLooseMessage(gameMoney);
         }
 
         public static int PayoutDictionary(int key)
