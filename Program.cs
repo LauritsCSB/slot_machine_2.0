@@ -30,10 +30,8 @@ namespace SlotMachine2
         public static int[,] numbers2d = new int[3, 3];
         static void Main(string[] args)
         {
-            Random randomNumber = new Random();
             int playPicker;
             int gameMoney = GAMEMONEY;
-            int userBet;
             string playOrNo = "y";
 
             UIMethods.DisplayWelcomeMessage();
@@ -56,10 +54,8 @@ namespace SlotMachine2
 
                 UIMethods.ClearConsole();
 
-                //Fills 2d array with random numbers
                 FillMatrixWithRandomNumbers(numbers2d);
 
-                //Writes numbers in matrix to user
                 UIMethods.DisplayNumbersMatrix(Program.numbers2d);
 
                 int matchingNumbers = 0;
@@ -146,10 +142,8 @@ namespace SlotMachine2
                     gameMoney += Program.Payout[playPicker];
                 }
 
-                //Outputs gamemoney
                 UIMethods.OutputGamemoney(gameMoney);
 
-                //Asks for new round
                 playOrNo = UIMethods.AskForReplay();
 
                 UIMethods.ClearConsole();
