@@ -172,19 +172,5 @@ namespace SlotMachine2
 
             UIMethods.GameOverMessage(gameMoney);
         }
-
-        public static int PayoutDictionary(int key)
-        {
-            Dictionary<int, int> payout = new Dictionary<int, int>
-            {
-                {1, 3},
-                {2, 12},
-                {3, 25},
-                {4, 6},
-                {5, 20},
-                {6, 50}
-            };
-            return payout[key];
-        }
     }
 }
