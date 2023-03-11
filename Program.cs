@@ -34,33 +34,27 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             int userBet;
             int[,] numbers2d = new int[3, 3];
-            string playOrNo;
+            string playOrNo = "y";
 
             UIMethods.DisplayWelcomeMessage();
             do
             {
                 bool winOrLoose = false;
                 UIMethods.DisplayPlayOptions();
+
+                playPicker = UIMethods.TakePlayInput();
                 
-                if (int.TryParse(Console.ReadLine(), out playPicker))
+                if (Program.PlayCost.ContainsKey(playPicker))
                 {
-                    if (Program.PlayCost.ContainsKey(playPicker))
-                    {
-                        gameMoney -= Program.PlayCost[playPicker];    
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        continue;
-                    }
+                    gameMoney -= Program.PlayCost[playPicker];    
                 }
                 else
                 {
-                    Console.Clear();
+                    UIMethods.ClearConsole();
                     continue;
                 }
 
-                Console.Clear();
+                UIMethods.ClearConsole();
 
                 //Fills 2d array with random numbers
                 for (int row = 0; row < numbers2d.GetLength(0); row++)
@@ -169,9 +163,9 @@ namespace SlotMachine2
                 UIMethods.OutputGamemoney(gameMoney);
 
                 //Asks for new round
-                playOrNo = UIMethods.PlayAgain();
+                playOrNo = UIMethods.AskForReplay();
 
-                Console.Clear();
+                UIMethods.ClearConsole();
             } while (gameMoney > 0 && playOrNo.Contains("y"));
 
             UIMethods.GameOverMessage(gameMoney);

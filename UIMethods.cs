@@ -17,12 +17,21 @@ namespace slot_machine_2._0
                     $"All rows ($5 cost, ${Program.Payout[3]} reward)\n4. One column  (2$ cost, ${Program.Payout[4]} reward)\n5. Two columns ($4 cost ${Program.Payout[5]} reward)\n6. Diagonal lines ($5 cost, ${Program.Payout[6]} reward)");
         }
 
+        public static int TakePlayInput()
+        {
+            int playPick;
+            int.TryParse(Console.ReadLine(), out playPick);
+            
+            return playPick;
+            
+        }
+
         public static void OutputGamemoney(int money)
         {
             Console.WriteLine("$" + money);
         }
 
-        public static string PlayAgain()
+        public static string AskForReplay()
         {
             string userAnswer = "y";
             Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");
@@ -52,6 +61,11 @@ namespace slot_machine_2._0
             {
                 Console.WriteLine("No win..");
             }
+        }
+
+        public static void ClearConsole()
+        {
+            Console.Clear();
         }
     }
 }
