@@ -1,14 +1,12 @@
-﻿using slot_machine_2._0;
+﻿using System.Collections.ObjectModel;
+using slot_machine_2._0;
 
 namespace SlotMachine2
 {
     internal class Program
     {
-        const int GAMEMONEY = 100;
-        static void Main(string[] args)
-        {
-            Random randomNumber = new Random();
-            Dictionary<int, int> playCost = new Dictionary<int, int>
+        private static readonly ReadOnlyDictionary<int, int> PlayCost = new ReadOnlyDictionary<int, int>(
+            new Dictionary<int, int>
             {
                 {1, 1},
                 {2, 3},
@@ -16,7 +14,11 @@ namespace SlotMachine2
                 {4, 2},
                 {5, 4},
                 {6, 5}
-            };
+            });
+        const int GAMEMONEY = 100;
+        static void Main(string[] args)
+        {
+            Random randomNumber = new Random();
             Dictionary<int, int> payout = new Dictionary<int, int>
             {
                 {1, 3},
@@ -40,9 +42,9 @@ namespace SlotMachine2
                 
                 if (int.TryParse(Console.ReadLine(), out playPicker))
                 {
-                    if (playCost.ContainsKey(playPicker))
+                    if (Program.PlayCost.ContainsKey(playPicker))
                     {
-                        gameMoney -= playCost[playPicker];    
+                        gameMoney -= Program.PlayCost[playPicker];    
                     }
                     else
                     {
