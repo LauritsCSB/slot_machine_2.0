@@ -30,20 +30,11 @@ namespace SlotMachine2
         static void Main(string[] args)
         {
             Random randomNumber = new Random();
-            Dictionary<int, int> payout = new Dictionary<int, int>
-            {
-                {1, 3},
-                {2, 12},
-                {3, 25},
-                {4, 6},
-                {5, 20},
-                {6, 50}
-            };
             int playPicker;
             int gameMoney = GAMEMONEY;
             int userBet;
             int[,] numbers2d = new int[3, 3];
-            string playOrNo = "y";
+            string playOrNo;
 
             UIMethods.DisplayWelcomeMessage();
             do
