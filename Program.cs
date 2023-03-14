@@ -27,9 +27,10 @@ namespace SlotMachine2
                 {6, 50}
             });
         const int GAMEMONEY = 100;
-        public static int[,] numbers2d = new int[3, 3];
+        public static Random randomNumber = new Random();
         static void Main(string[] args)
         {
+            int[,] numbers2d = new int[3, 3];
             int playPicker;
             int gameMoney = GAMEMONEY;
             string playOrNo = "y";
@@ -56,7 +57,7 @@ namespace SlotMachine2
 
                 FillMatrixWithRandomNumbers(numbers2d);
 
-                UIMethods.DisplayNumbersMatrix(Program.numbers2d);
+                UIMethods.DisplayNumbersMatrix(numbers2d);
 
                 int matchingNumbers = 0;
                 int matchingLines = 0;
@@ -154,7 +155,6 @@ namespace SlotMachine2
 
         public static int[,] FillMatrixWithRandomNumbers(int[,] array)
         {
-            Random randomNumber = new Random();
             for (int row = 0; row < array.GetLength(0); row++)
             {
                 for (int column = 0; column < array.GetLength(1); column++)
