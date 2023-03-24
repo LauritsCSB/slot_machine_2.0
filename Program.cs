@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using slot_machine_2._0;
+using slot_machine_2;
 
 namespace SlotMachine2
 {
@@ -55,7 +55,7 @@ namespace SlotMachine2
 
                 UIMethods.ClearConsole();
 
-                FillMatrixWithRandomNumbers(numbers2d);
+                LogicMethods.FillMatrixWithRandomNumbers(numbers2d);
 
                 UIMethods.DisplayNumbersMatrix(numbers2d);
 
@@ -151,18 +151,6 @@ namespace SlotMachine2
             } while (gameMoney > 0 && playOrNo.Contains("y"));
 
             UIMethods.GameOverMessage(gameMoney);
-        }
-
-        public static int[,] FillMatrixWithRandomNumbers(int[,] array)
-        {
-            for (int row = 0; row < array.GetLength(0); row++)
-            {
-                for (int column = 0; column < array.GetLength(1); column++)
-                {
-                    array[row, column] = randomNumber.Next(0, 3);
-                }
-            }
-            return array;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using SlotMachine2;
 
-namespace slot_machine_2._0
+namespace slot_machine_2
 {
     public static class UIMethods
     {
