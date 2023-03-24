@@ -5,19 +5,19 @@ namespace slot_machine_2
 {
     public static class UIMethods
     {
-        public static void DisplayWelcomeMessage()
+        public static void WelcomeMessage()
         {
             Console.WriteLine("Hello user, this is a slot machine. You can choose to bet on what you think the matrix will show. " +
                 "The more rows, columns and diagonals you choose to bet on, the higher the payout! You start with $100 dollars.\n");
         }
 
-        public static void DisplayPlayOptions()
+        public static void PlayOptions()
         {
             Console.WriteLine($"Here's the possible play options:\n1. One row ($1 cost, ${Program.Payout[1]} reward)\n2. Two rows ($3 cost, ${Program.Payout[2]} reward)\n3. " +
                     $"All rows ($5 cost, ${Program.Payout[3]} reward)\n4. One column  (2$ cost, ${Program.Payout[4]} reward)\n5. Two columns ($4 cost ${Program.Payout[5]} reward)\n6. Diagonal lines ($5 cost, ${Program.Payout[6]} reward)");
         }
 
-        public static int TakePlayInput()
+        public static int PlayInput()
         {
             int playPick;
             int.TryParse(Console.ReadLine(), out playPick);
@@ -25,7 +25,7 @@ namespace slot_machine_2
             return playPick;
         }
 
-        public static void DisplayNumbersMatrix(int[,] array)
+        public static void NumbersMatrix(int[,] array)
         {
             for (int row = 0; row < array.GetLength(0); row++)
             {
@@ -37,12 +37,12 @@ namespace slot_machine_2
             }
         }
 
-        public static void OutputGamemoney(int money)
+        public static void Gamemoney(int money)
         {
             Console.WriteLine("$" + money);
         }
 
-        public static string AskForReplay()
+        public static string ReplayInput()
         {
             string userAnswer = "y";
             Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");

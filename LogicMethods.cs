@@ -1,4 +1,6 @@
 ﻿using System;
+using SlotMachine2;
+
 namespace slot_machine_2
 {
     public class LogicMethods
@@ -9,7 +11,7 @@ namespace slot_machine_2
             {
                 for (int column = 0; column < array.GetLength(1); column++)
                 {
-                    array[row, column] = randomNumber.Next(0, 3);
+                    array[row, column] = Program.randomNumber.Next(0, 3);
                 }
             }
             return array;
