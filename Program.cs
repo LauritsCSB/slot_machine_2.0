@@ -27,33 +27,28 @@ namespace SlotMachine2
                 {6, 50}
             });
         const int GAMEMONEY = 100;
+        public static int playPicker;
+        public static int[,] numbers2d = new int[3, 3];
         public static Random randomNumber = new Random();
         static void Main(string[] args)
         {
-            int[,] numbers2d = new int[3, 3];
-            int playPicker;
             int gameMoney = GAMEMONEY;
             string playOrNo = "y";
 
             UIMethods.WelcomeMessage();
             do
             {
+                playPicker = 0;
                 bool winOrLoose = false;
-                UIMethods.PlayOptions();
 
-                playPicker = UIMethods.PlayInput();
-                
-                if (Program.PlayCost.ContainsKey(playPicker))
+                while (!Program.PlayCost.ContainsKey(playPicker))
                 {
-                    gameMoney -= Program.PlayCost[playPicker];    
-                }
-                else
-                {
+                    UIMethods.PlayOptions();
+                    playPicker = UIMethods.PlayInput();
                     UIMethods.ClearConsole();
-                    continue;
                 }
 
-                UIMethods.ClearConsole();
+                gameMoney -= PlayCost[playPicker];
 
                 LogicMethods.FillMatrixWithRandomNumbers(numbers2d);
 
@@ -61,30 +56,15 @@ namespace SlotMachine2
 
                 int matchingNumbers = 0;
                 int matchingLines = 0;
-                //Checking rows
+                
                 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
-                    for (int row = 0; row < numbers2d.GetLength(0); row++)
-                    {
-                        matchingNumbers = 0;
-                        for (int column = 0; column < numbers2d.GetLength(1); column++)
-                        {
-                            if (numbers2d[row, 0] == numbers2d[row, column])
-                            {
-                                matchingNumbers++;
-                            }
+                    matchingLines = LogicMethods.CheckRows(numbers2d);
+                }
 
-                        }
-                        if (matchingNumbers == 3)
-                        {
-                            matchingLines++;
-                        }
-                    }
-
-                    if (matchingLines >= playPicker)
-                    {
-                        winOrLoose = true;
-                    }
+                if (matchingLines >= playPicker)
+                {
+                    winOrLoose = true;
                 }
 
                 //Checking columns
@@ -145,7 +125,7 @@ namespace SlotMachine2
 
                 UIMethods.Gamemoney(gameMoney);
 
-                playOrNo = UIMethods.ReplayInput();
+                playOrNo = UIMethods.AskForReplay();
 
                 UIMethods.ClearConsole();
             } while (gameMoney > 0 && playOrNo.Contains("y"));

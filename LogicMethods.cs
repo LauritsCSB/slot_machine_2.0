@@ -16,6 +16,30 @@ namespace slot_machine_2
             }
             return array;
         }
+
+        public static int CheckRows(int[,] array)
+        {
+            int matchingLines = 0;
+            int matchingNumbers = 0;
+
+            for (int row = 0; row < Program.numbers2d.GetLength(0); row++)
+            {
+                matchingNumbers = 0;
+                for (int column = 0; column < Program.numbers2d.GetLength(1); column++)
+                {
+                    if (Program.numbers2d[row, 0] == Program.numbers2d[row, column])
+                    {
+                        matchingNumbers++;
+                    }
+
+                }
+                if (matchingNumbers == 3)
+                {
+                    matchingLines++;
+                }
+            }
+            return matchingLines;
+        }
     }
 }
 

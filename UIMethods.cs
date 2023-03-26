@@ -42,7 +42,7 @@ namespace slot_machine_2
             Console.WriteLine("$" + money);
         }
 
-        public static string ReplayInput()
+        public static string AskForReplay()
         {
             string userAnswer = "y";
             Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");
