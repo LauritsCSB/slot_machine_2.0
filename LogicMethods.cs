@@ -20,11 +20,10 @@ namespace slot_machine_2
         public static int Rows(int[,] array)
         {
             int matchingLines = 0;
-            int matchingNumbers = 0;
 
             for (int row = 0; row < Program.numbers2d.GetLength(0); row++)
             {
-                matchingNumbers = 0;
+                int matchingNumbers = 0;
                 for (int column = 0; column < Program.numbers2d.GetLength(1); column++)
                 {
                     if (Program.numbers2d[row, 0] == Program.numbers2d[row, column])
@@ -44,10 +43,11 @@ namespace slot_machine_2
         public static int Columns(int[,] array)
         {
             int matchingLines = 0;
-            int matchingNumbers = 0;
+
             for (int column = 0; column < Program.numbers2d.GetLength(1); column++)
             {
-                matchingNumbers = 0;
+               int matchingNumbers = 0;
+
                 for (int row = 0; row < Program.numbers2d.GetLength(0); row++)
                 {
                     if (Program.numbers2d[0, column] == Program.numbers2d[row, column])
