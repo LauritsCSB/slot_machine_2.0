@@ -27,8 +27,8 @@ namespace SlotMachine2
                 {6, 50}
             });
         const int GAMEMONEY = 100;
-        public static int playPicker;
         public static int[,] numbers2d = new int[3, 3];
+
         static void Main(string[] args)
         {
             int gameMoney = GAMEMONEY;
@@ -37,7 +37,7 @@ namespace SlotMachine2
             UIMethods.WelcomeMessage();
             do
             {
-                playPicker = 0;
+                int playPicker = 0;
                 bool winOrLoose = false;
 
                 while (!PlayCost.ContainsKey(playPicker))
