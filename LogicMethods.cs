@@ -40,6 +40,29 @@ namespace slot_machine_2
             }
             return matchingLines;
         }
+
+        public static int CheckColumns(int[,] array)
+        {
+            int matchingLines = 0;
+            int matchingNumbers = 0;
+            for (int column = 0; column < Program.numbers2d.GetLength(1); column++)
+            {
+                matchingNumbers = 0;
+                for (int row = 0; row < Program.numbers2d.GetLength(0); row++)
+                {
+                    if (Program.numbers2d[0, column] == Program.numbers2d[row, column])
+                    {
+                        matchingNumbers++;
+                    }
+                }
+
+                if (matchingNumbers == 3)
+                {
+                    matchingLines++;
+                }
+            }
+            return matchingLines;
+        }
     }
 }
 
