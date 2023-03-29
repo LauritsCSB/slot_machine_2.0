@@ -56,10 +56,11 @@ namespace SlotMachine2
 
                 int matchingNumbers = 0;
                 int matchingLines = 0;
-                
+
+                //Checking rows
                 if (playPicker == 1 || playPicker == 2 || playPicker == 3)
                 {
-                    matchingLines = LogicMethods.CheckRows(numbers2d);
+                    matchingLines = LogicMethods.Rows(numbers2d);
 
                     if (matchingLines >= playPicker)
                     {
@@ -67,10 +68,10 @@ namespace SlotMachine2
                     }
                 }
 
-
+                //Checking columns
                 if (playPicker == 4 || playPicker == 5)
                 {
-                    matchingLines = LogicMethods.CheckColumns(numbers2d);
+                    matchingLines = LogicMethods.Columns(numbers2d);
 
                     if (matchingLines >= 1 && playPicker == 4)
                     {
@@ -85,15 +86,7 @@ namespace SlotMachine2
                 //Checking diagonal lines
                 if (playPicker == 6)
                 {
-                    if (numbers2d[0, 0] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 2])
-                    {
-                        matchingNumbers++;
-                    }
-
-                    if (numbers2d[0, 2] == numbers2d[1, 1] && numbers2d[1, 1] == numbers2d[2, 0])
-                    {
-                        matchingNumbers++;
-                    }
+                    matchingNumbers = LogicMethods.Diagonals(numbers2d);
 
                     if (matchingNumbers >= 2)
                     {

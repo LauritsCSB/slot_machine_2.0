@@ -17,7 +17,7 @@ namespace slot_machine_2
             return array;
         }
 
-        public static int CheckRows(int[,] array)
+        public static int Rows(int[,] array)
         {
             int matchingLines = 0;
             int matchingNumbers = 0;
@@ -41,7 +41,7 @@ namespace slot_machine_2
             return matchingLines;
         }
 
-        public static int CheckColumns(int[,] array)
+        public static int Columns(int[,] array)
         {
             int matchingLines = 0;
             int matchingNumbers = 0;
@@ -62,6 +62,23 @@ namespace slot_machine_2
                 }
             }
             return matchingLines;
+        }
+
+        public static int Diagonals(int[,] array)
+        {
+            int matchingNumbers = 0;
+
+            if (Program.numbers2d[0, 0] == Program.numbers2d[1, 1] && Program.numbers2d[1, 1] == Program.numbers2d[2, 2])
+            {
+                matchingNumbers++;
+            }
+
+            if (Program.numbers2d[0, 2] == Program.numbers2d[1, 1] && Program.numbers2d[1, 1] == Program.numbers2d[2, 0])
+            {
+                matchingNumbers++;
+            }
+
+            return matchingNumbers;
         }
     }
 }
