@@ -32,7 +32,7 @@ namespace SlotMachine2
         static void Main(string[] args)
         {
             int gameMoney = GAMEMONEY;
-            string playOrNo = "y";
+            string playOrNo;
 
             UIMethods.WelcomeMessage();
             do
