@@ -21,7 +21,6 @@ namespace slot_machine_2
 
         public static bool CheckMatrix(int playmode)
         {
-            int matchingNumbers = 0;
             int matchingLines = 0;
             bool winOrLoose = false;
 
@@ -29,6 +28,30 @@ namespace slot_machine_2
             {
                 matchingLines = Rows(Program.numbers2d);
 
+                winOrLoose = WinDecider(matchingLines, playmode);
+            }
+            else if (playmode <= 5)
+            {
+                matchingLines = Columns(Program.numbers2d);
+
+                winOrLoose = WinDecider(matchingLines, playmode);
+            }
+            else
+            {
+                matchingLines = Diagonals(Program.numbers2d);
+
+                winOrLoose = WinDecider(matchingLines, playmode);
+            }
+
+            return winOrLoose;
+        }
+
+        static bool WinDecider(int matchingLines, int playmode )
+        {
+            bool winOrLoose = false;
+
+            if (playmode <= 3)
+            {
                 if (matchingLines >= playmode)
                 {
                     winOrLoose = true;
@@ -36,8 +59,6 @@ namespace slot_machine_2
             }
             else if (playmode <= 5)
             {
-                matchingLines = Columns(Program.numbers2d);
-
                 if (matchingLines >= 1 && playmode == 4)
                 {
                     winOrLoose = true;
@@ -49,9 +70,7 @@ namespace slot_machine_2
             }
             else
             {
-                matchingNumbers = Diagonals(Program.numbers2d);
-
-                if (matchingNumbers >= 2)
+                if (matchingLines >= 2 && playmode == 6)
                 {
                     winOrLoose = true;
                 }
