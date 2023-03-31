@@ -19,6 +19,47 @@ namespace slot_machine_2
             return array;
         }
 
+        public static bool CheckMatrix(int playmode)
+        {
+            int matchingNumbers = 0;
+            int matchingLines = 0;
+            bool winOrLoose = false;
+
+            if (playmode <= 3)
+            {
+                matchingLines = Rows(Program.numbers2d);
+
+                if (matchingLines >= playmode)
+                {
+                    winOrLoose = true;
+                }
+            }
+            else if (playmode <= 5)
+            {
+                matchingLines = Columns(Program.numbers2d);
+
+                if (matchingLines >= 1 && playmode == 4)
+                {
+                    winOrLoose = true;
+                }
+                else if (matchingLines >= 2 && playmode == 5)
+                {
+                    winOrLoose = true;
+                }
+            }
+            else
+            {
+                matchingNumbers = Diagonals(Program.numbers2d);
+
+                if (matchingNumbers >= 2)
+                {
+                    winOrLoose = true;
+                }
+            }
+
+            return winOrLoose;
+        }
+
         public static int Rows(int[,] array)
         {
             int matchingLines = 0;

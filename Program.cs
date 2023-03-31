@@ -53,40 +53,7 @@ namespace SlotMachine2
 
                 UIMethods.NumbersMatrix(numbers2d);
 
-                int matchingNumbers = 0;
-                int matchingLines = 0;
-
-                if (playPicker <= 3)
-                {
-                    matchingLines = LogicMethods.Rows(numbers2d);
-
-                    if (matchingLines >= playPicker)
-                    {
-                        winOrLoose = true;
-                    }
-                }
-                else if (playPicker <= 5)
-                {
-                    matchingLines = LogicMethods.Columns(numbers2d);
-
-                    if (matchingLines >= 1 && playPicker == 4)
-                    {
-                        winOrLoose = true;
-                    }
-                    else if (matchingLines >= 2 && playPicker == 5)
-                    {
-                        winOrLoose = true;
-                    }
-                }
-                else
-                {
-                    matchingNumbers = LogicMethods.Diagonals(numbers2d);
-
-                    if (matchingNumbers >= 2)
-                    {
-                        winOrLoose = true;
-                    }
-                }
+                winOrLoose = LogicMethods.CheckMatrix(playPicker);
 
                 UIMethods.WinOrLooseMessage(winOrLoose);
 
