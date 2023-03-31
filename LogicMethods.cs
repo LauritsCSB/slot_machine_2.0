@@ -109,19 +109,19 @@ namespace slot_machine_2
 
         public static int Diagonals(int[,] array)
         {
-            int matchingNumbers = 0;
+            int matchingLines = 0;
 
             if (Program.numbers2d[0, 0] == Program.numbers2d[1, 1] && Program.numbers2d[1, 1] == Program.numbers2d[2, 2])
             {
-                matchingNumbers++;
+                matchingLines++;
             }
 
             if (Program.numbers2d[0, 2] == Program.numbers2d[1, 1] && Program.numbers2d[1, 1] == Program.numbers2d[2, 0])
             {
-                matchingNumbers++;
+                matchingLines++;
             }
 
-            return matchingNumbers;
+            return matchingLines;
         }
     }
 }
