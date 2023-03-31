@@ -34,7 +34,7 @@ namespace SlotMachine2
             int gameMoney = GAMEMONEY;
             string playOrNo;
 
-            UIMethods.WelcomeMessage();
+            UIMethods.PrintWelcomeMessage();
             do
             {
                 int playPicker = 0;
@@ -42,8 +42,8 @@ namespace SlotMachine2
 
                 while (!PlayCost.ContainsKey(playPicker))
                 {
-                    UIMethods.PlayOptions();
-                    playPicker = UIMethods.PlayInput();
+                    UIMethods.PrintPlaymodes();
+                    playPicker = UIMethods.TakePlayInput();
                     UIMethods.ClearConsole();
                 }
 
@@ -51,25 +51,25 @@ namespace SlotMachine2
 
                 LogicMethods.FillMatrixWithRandomNumbers(numbers2d);
 
-                UIMethods.NumbersMatrix(numbers2d);
+                UIMethods.PrintNumbersMatrix(numbers2d);
 
                 winOrLoose = LogicMethods.CheckMatrix(playPicker);
 
-                UIMethods.WinOrLooseMessage(winOrLoose);
+                UIMethods.PrintWinOrLooseMessage(winOrLoose);
 
                 if (winOrLoose)
                 {
                     gameMoney += Program.Payout[playPicker];
                 }
 
-                UIMethods.Gamemoney(gameMoney);
+                UIMethods.PrintGamemoney(gameMoney);
 
-                playOrNo = UIMethods.AskForReplay();
+                playOrNo = UIMethods.TakeReplayInput();
 
                 UIMethods.ClearConsole();
             } while (gameMoney > 0 && playOrNo.Contains("y"));
 
-            UIMethods.GameOverMessage(gameMoney);
+            UIMethods.PrintGameOverMessage(gameMoney);
         }
     }
 }
