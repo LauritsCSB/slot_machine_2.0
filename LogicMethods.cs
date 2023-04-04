@@ -26,19 +26,19 @@ namespace slot_machine_2
 
             if (playmode <= 3)
             {
-                matchingLines = Rows(array);
+                matchingLines = CheckRows(array);
 
                 winOrLoose = WinDecider(matchingLines, playmode);
             }
             else if (playmode <= 5)
             {
-                matchingLines = Columns(array);
+                matchingLines = CheckColumns(array);
 
                 winOrLoose = WinDecider(matchingLines, playmode);
             }
             else
             {
-                matchingLines = Diagonals(array);
+                matchingLines = CheckDiagonals(array);
 
                 winOrLoose = WinDecider(matchingLines, playmode);
             }
@@ -79,7 +79,7 @@ namespace slot_machine_2
             return winOrLoose;
         }
 
-        public static int Rows(int[,] array)
+        public static int CheckRows(int[,] array)
         {
             int matchingLines = 0;
 
@@ -102,7 +102,7 @@ namespace slot_machine_2
             return matchingLines;
         }
 
-        public static int Columns(int[,] array)
+        public static int CheckColumns(int[,] array)
         {
             int matchingLines = 0;
 
@@ -126,7 +126,7 @@ namespace slot_machine_2
             return matchingLines;
         }
 
-        public static int Diagonals(int[,] array)
+        public static int CheckDiagonals(int[,] array)
         {
             int matchingLines = 0;
 
