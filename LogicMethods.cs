@@ -19,26 +19,26 @@ namespace slot_machine_2
             return array;
         }
 
-        public static bool CheckMatrix(int playmode)
+        public static bool CheckMatrix(int playmode, int[,] array)
         {
             int matchingLines = 0;
             bool winOrLoose = false;
 
             if (playmode <= 3)
             {
-                matchingLines = Rows(Program.numbers2d);
+                matchingLines = Rows(array);
 
                 winOrLoose = WinDecider(matchingLines, playmode);
             }
             else if (playmode <= 5)
             {
-                matchingLines = Columns(Program.numbers2d);
+                matchingLines = Columns(array);
 
                 winOrLoose = WinDecider(matchingLines, playmode);
             }
             else
             {
-                matchingLines = Diagonals(Program.numbers2d);
+                matchingLines = Diagonals(array);
 
                 winOrLoose = WinDecider(matchingLines, playmode);
             }
@@ -83,12 +83,12 @@ namespace slot_machine_2
         {
             int matchingLines = 0;
 
-            for (int row = 0; row < Program.numbers2d.GetLength(0); row++)
+            for (int row = 0; row < array.GetLength(0); row++)
             {
                 int matchingNumbers = 0;
-                for (int column = 0; column < Program.numbers2d.GetLength(1); column++)
+                for (int column = 0; column < array.GetLength(1); column++)
                 {
-                    if (Program.numbers2d[row, 0] == Program.numbers2d[row, column])
+                    if (array[row, 0] == array[row, column])
                     {
                         matchingNumbers++;
                     }
@@ -106,13 +106,13 @@ namespace slot_machine_2
         {
             int matchingLines = 0;
 
-            for (int column = 0; column < Program.numbers2d.GetLength(1); column++)
+            for (int column = 0; column < array.GetLength(1); column++)
             {
                int matchingNumbers = 0;
 
-                for (int row = 0; row < Program.numbers2d.GetLength(0); row++)
+                for (int row = 0; row < array.GetLength(0); row++)
                 {
-                    if (Program.numbers2d[0, column] == Program.numbers2d[row, column])
+                    if (array[0, column] == array[row, column])
                     {
                         matchingNumbers++;
                     }
@@ -130,12 +130,12 @@ namespace slot_machine_2
         {
             int matchingLines = 0;
 
-            if (Program.numbers2d[0, 0] == Program.numbers2d[1, 1] && Program.numbers2d[1, 1] == Program.numbers2d[2, 2])
+            if (array[0, 0] == array[1, 1] && array[1, 1] == array[2, 2])
             {
                 matchingLines++;
             }
 
-            if (Program.numbers2d[0, 2] == Program.numbers2d[1, 1] && Program.numbers2d[1, 1] == Program.numbers2d[2, 0])
+            if (array[0, 2] == array[1, 1] && array[1, 1] == array[2, 0])
             {
                 matchingLines++;
             }

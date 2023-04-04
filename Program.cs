@@ -27,10 +27,10 @@ namespace SlotMachine2
                 {6, 50}
             });
         const int GAMEMONEY = 100;
-        public static int[,] numbers2d = new int[3, 3];
 
         static void Main(string[] args)
         {
+            int[,] numbers2d = new int[3, 3];
             int gameMoney = GAMEMONEY;
             string playOrNo;
 
@@ -53,7 +53,7 @@ namespace SlotMachine2
 
                 UIMethods.PrintNumbersMatrix(numbers2d);
 
-                winOrLoose = LogicMethods.CheckMatrix(playPicker);
+                winOrLoose = LogicMethods.CheckMatrix(playPicker, numbers2d);
 
                 UIMethods.PrintWinOrLooseMessage(winOrLoose);
 
