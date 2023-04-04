@@ -40,12 +40,7 @@ namespace SlotMachine2
                 int playPicker = 0;
                 bool winOrLoose = false;
 
-                while (!PlayCost.ContainsKey(playPicker))
-                {
-                    UIMethods.PrintPlaymodes();
-                    playPicker = UIMethods.TakePlayInput();
-                    UIMethods.ClearConsole();
-                }
+                playPicker = LogicMethods.CheckValidPlayInput(playPicker);
 
                 gameMoney -= PlayCost[playPicker];
 

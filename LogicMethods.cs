@@ -19,6 +19,17 @@ namespace slot_machine_2
             return array;
         }
 
+        public static int CheckValidPlayInput(int playPicker)
+        {
+            while (!Program.PlayCost.ContainsKey(playPicker))
+            {
+                UIMethods.PrintPlaymodes();
+                playPicker = UIMethods.TakePlayInput();
+                UIMethods.ClearConsole();
+            }
+            return playPicker;
+        }
+
         public static bool CheckMatrix(int playmode, int[,] array)
         {
             int matchingLines = 0;
