@@ -27,22 +27,17 @@ namespace slot_machine_2
             if (playmode <= 3)
             {
                 matchingLines = CheckRows(array);
-
-                winOrLoose = WinDecider(matchingLines, playmode);
             }
             else if (playmode <= 5)
             {
                 matchingLines = CheckColumns(array);
-
-                winOrLoose = WinDecider(matchingLines, playmode);
             }
             else
             {
                 matchingLines = CheckDiagonals(array);
-
-                winOrLoose = WinDecider(matchingLines, playmode);
             }
 
+            winOrLoose = WinDecider(matchingLines, playmode);
             return winOrLoose;
         }
 
