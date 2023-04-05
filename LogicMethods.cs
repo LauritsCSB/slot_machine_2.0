@@ -25,7 +25,6 @@ namespace slot_machine_2
             {
                 UIMethods.PrintPlaymodes();
                 playPicker = UIMethods.TakePlayInput();
-                UIMethods.ClearConsole();
             }
             return playPicker;
         }

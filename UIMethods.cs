@@ -21,6 +21,7 @@ namespace slot_machine_2
         {
             int playPick;
             int.TryParse(Console.ReadLine(), out playPick);
+            Console.Clear();
             return playPick;
         }
 
