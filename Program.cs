@@ -32,7 +32,7 @@ namespace SlotMachine2
         {
             int[,] numbers2d = new int[3, 3];
             int gameMoney = GAMEMONEY;
-            string playOrNo;
+            string playAgain;
 
             UIMethods.PrintWelcomeMessage();
             do
@@ -59,10 +59,10 @@ namespace SlotMachine2
 
                 UIMethods.PrintGamemoney(gameMoney);
 
-                playOrNo = UIMethods.TakeReplayInput();
+                playAgain = UIMethods.TakeReplayInput();
 
                 UIMethods.ClearConsole();
-            } while (gameMoney > 0 && playOrNo.Contains("y"));
+            } while (gameMoney > 0 && playAgain.Contains("y"));
 
             UIMethods.PrintGameOverMessage(gameMoney);
         }
