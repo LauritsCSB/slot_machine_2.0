@@ -21,7 +21,6 @@ namespace slot_machine_2
         {
             int playPick;
             int.TryParse(Console.ReadLine(), out playPick);
-            
             return playPick;
         }
 
@@ -47,6 +46,7 @@ namespace slot_machine_2
             string userAnswer = "y";
             Console.WriteLine("Would you like to play again?, press y for yes and anything else for no, press enter");
             userAnswer = Console.ReadLine();
+            Console.Clear();
             return userAnswer;
         }
 

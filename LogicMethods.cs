@@ -33,7 +33,7 @@ namespace slot_machine_2
         public static bool CheckMatrix(int playmode, int[,] array)
         {
             int matchingLines = 0;
-            bool winOrLoose = false;
+            bool win = false;
 
             if (playmode <= 3)
             {
@@ -48,41 +48,41 @@ namespace slot_machine_2
                 matchingLines = CheckDiagonals(array);
             }
 
-            winOrLoose = WinDecider(matchingLines, playmode);
-            return winOrLoose;
+            win = WinDecider(matchingLines, playmode);
+            return win;
         }
 
         static bool WinDecider(int matchingLines, int playmode )
         {
-            bool winOrLoose = false;
+            bool win = false;
 
             if (playmode <= 3)
             {
                 if (matchingLines >= playmode)
                 {
-                    winOrLoose = true;
+                    win = true;
                 }
             }
             else if (playmode <= 5)
             {
                 if (matchingLines >= 1 && playmode == 4)
                 {
-                    winOrLoose = true;
+                    win = true;
                 }
                 else if (matchingLines >= 2 && playmode == 5)
                 {
-                    winOrLoose = true;
+                    win = true;
                 }
             }
             else
             {
                 if (matchingLines >= 2 && playmode == 6)
                 {
-                    winOrLoose = true;
+                    win = true;
                 }
             }
 
-            return winOrLoose;
+            return win;
         }
 
         public static int CheckRows(int[,] array)

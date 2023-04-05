@@ -61,7 +61,6 @@ namespace SlotMachine2
 
                 playAgain = UIMethods.TakeReplayInput();
 
-                UIMethods.ClearConsole();
             } while (gameMoney > 0 && playAgain.Contains("y"));
 
             UIMethods.PrintGameOverMessage(gameMoney);
