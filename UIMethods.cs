@@ -74,11 +74,6 @@ namespace slot_machine_2
                 Console.WriteLine("No win..");
             }
         }
-
-        public static void ClearConsole()
-        {
-            Console.Clear();
-        }
     }
 }
 
